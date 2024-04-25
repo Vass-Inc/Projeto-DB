@@ -1,9 +1,6 @@
 # Projeto-DB
 Gestor de Projetos DI UBI
 
-
-# Projeto Final
-
 ## Tabelas 
 
 Tabela: **Projetos/Contratos**
