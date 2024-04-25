@@ -8,18 +8,14 @@ Tabela: **Projetos/Contratos**
      - ID_projeto (Primary Key)
      - Estado (aprovado, cancelado, concluído, em curso, encerrado, renovado, em submissão)
      - Financiamento (competitivo ou não)
-     - Nome_curto_PT
-     - Nome_curto_EN
-     - Título_PT
-     - Título_EN
-     - Descrição_PT
-     - Descrição_EN
+     - Nome
+     - Título
+     - Descrição
      - URL
      - DOI
      - Data_inicio
      - Data_fim
-     - Palavras-chave_PT
-     - Palavras-chave_EN
+     - Palavra_Chave
      - Domínio_científico
      - Área_científica
      - ID_entidade (Foreign Key referenciando a tabela Entidades)
@@ -43,8 +39,7 @@ Tabela: **Entidades**
 Tabela: **Programas**
    - **Campos:**
      - ID_programa (Primary Key)
-     - Nome_programa_PT
-     - Nome_programa_EN
+     - Nome_programa
 
 Tabela: **Membros_DIUBI**
    - **Campos:**
@@ -58,8 +53,7 @@ Tabela: **Membros_DIUBI**
 Tabela: **Unidades_Investigação**
    - **Campos:**
      - ID_unidade (Primary Key)
-     - Nome_unidade_PT
-     - Nome_unidade_EN
+     - Nome_unidade
 
 Tabela: **Publicações**
    - **Campos:**
