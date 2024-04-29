@@ -18,9 +18,9 @@ Tabela: **Projetos/Contratos**
      - Palavra_Chave
      - Domínio_científico
      - Área_científica
-     - ID_entidade (Foreign Key referenciando a tabela Entidades)
-     - ID_programa (Foreign Key referenciando a tabela Programas)
-     - ID_IR (Foreign Key referenciando a tabela Investigadores)
+     - ID_entidade (Foreign Key da tabela Entidades)
+     - ID_programa (Foreign Key da tabela Programas)
+     - ID_IR (Foreign Key da tabela Investigadores)
      - Custo_total_elegível
 
 Tabela: **Entidades**
