@@ -3,61 +3,74 @@ Gestor de Projetos DI UBI
 
 ## Tabelas 
 
-Tabela: **Projetos/Contratos**
-   - **Campos:**
-     - ID_projeto (Primary Key)
-     - Estado (aprovado, cancelado, concluído, em curso, encerrado, renovado, em submissão)
-     - Financiamento (competitivo ou não)
-     - Nome
-     - Título
-     - Descrição
-     - URL
-     - DOI
-     - Data_inicio
-     - Data_fim
-     - Palavra_Chave
-     - Domínio_científico
-     - Área_científica
-     - ID_entidade (Foreign Key referenciando a tabela Entidades)
-     - ID_programa (Foreign Key referenciando a tabela Programas)
-     - ID_IR (Foreign Key referenciando a tabela Investigadores)
-     - Custo_total_elegível
+### Tabela Projeto
+- ID_projeto (PK)
+- Nome
+- Título
+- Descrição
+- Palavra_chave
+- Data_Inicio
+- Data_Fim
+- ID_programa (FK)
+- ID_entidade (FK)
+- ID_investigadores (FK)
 
-Tabela: **Entidades**
-   - **Campos:**
-     - ID_entidade (Primary Key)
-     - Nome
-     - Descrição
-     - Email
-     - Telefone
-     - Designação
-     - Sigla
-     - Morada
-     - URL
-     - País
+### Tabela Estado
+- ID_Projeto
+- ID_Estado
 
-Tabela: **Programas**
-   - **Campos:**
-     - ID_programa (Primary Key)
-     - Nome_programa
+### Tabela Tipo de Estado
+- ID_estado
+- Tipo_estado
 
-Tabela: **Membros_DIUBI**
-   - **Campos:**
-     - ID_membro (Primary Key)
-     - Número_funcionário
-     - ORCID
-     - Percentagem_tempo_dedicado
-     - Função (promotor, copromotor, líder, participante)
-     - ID_unidade_investigação (Foreign Key referenciando a tabela Unidades_Investigação)
+### Tabela Dominio
+- ID_projeto (FK)
+- Domínio_cientifico
 
-Tabela: **Unidades_Investigação**
-   - **Campos:**
-     - ID_unidade (Primary Key)
-     - Nome_unidade
+### Tabela Area
+- ID_projeto (FK)
+- Area_cientifica
 
-Tabela: **Publicações**
-   - **Campos:**
-     - ID_publicação (Primary Key)
-     - ID_projeto (Foreign Key referenciando a tabela Projetos/Contratos)
-     - DOI
-     - URL
+### Tabela Entidade
+- ID_entidade (PK)
+- Nome
+- Email
+- Telefone
+- designacao
+- Morada
+- URL
+- ID_pais (FK)
+
+### Tabela País
+- ID_pais (PK)
+- Nome_País
+
+### Tabela Zona Economica
+- ID_projeto (FK)
+- Zona_Economica
+
+### Tabela Programa
+- ID_programa (PK)
+- Nome_programa
+
+### Tabela Departamento_Investigação 
+- ID_departamento (PK)
+- Nome_departamento
+
+### Tabela Membros_DIUBI
+- ID_membro (PK)
+- Numero_funcionario
+- ORCID
+- Funcao
+- ID_unidade(FK)
+
+### Tabela Publicação
+- ID_publicacao (PK)
+- ID_projeto (FK)
+- DOI
+- URL
+
+### Tabela de Investigadores
+- ID_investigadores (PK)
+- ID_projeto (FK)
+- ID_membro (FK)
