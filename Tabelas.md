@@ -1,4 +1,4 @@
-# Tabela Projeto
+# Tabela Projeto (Lista)
 - ID_projeto (PK)
 - Nome
 - Título
