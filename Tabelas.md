@@ -9,7 +9,11 @@
 - ID_investigadores (FK)
 
 # Tabela Estado
-- ID_Projeto
+- ID_Projeto (FK)
+- ID_tipoEstado(FK)
+
+# Tabela tipo_estado
+- ID_tipoEstado
 - Estado
 
 # Tabela Data
