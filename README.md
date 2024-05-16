@@ -29,7 +29,7 @@ Gestor de Projetos DI UBI
 - ID_projeto (FK)
 - ID_dominio (FK)
 
-#6 Tabela Tipo de Dominio
+#6 Tabela Tipo_Dominio
 - ID_dominio (PK)
 - dominioCientifico
 
@@ -37,7 +37,7 @@ Gestor de Projetos DI UBI
 - ID_projeto (FK)
 - ID_areaCientifica (FK)
 
-#8 Tabela Tipo de Area Cientifica
+#8 Tabela Tipo_Area_Cientifica
 - ID_areaCientifica (PK)
 - areaCientifica
   
@@ -63,7 +63,7 @@ Gestor de Projetos DI UBI
 - ID_departamento (FK)
 - ID_membro (FK)
 
-#13 Tabela Nome de Departamento
+#13 Tabela Nome_Departamento
 - ID_departamento (PK)
 - nomeDepartamento
   
@@ -80,6 +80,14 @@ Gestor de Projetos DI UBI
 - DOI
 - URL
 
-#16 Tabela de Funcao Membro
+#16 Tabela Funcao_Membro
 - ID_projeto (FK)
 - ID_membro (FK)
+
+#17 Tabela Financiamento
+- ID_projeto (FK)
+- ID_tipoFinanciamento (FK)
+
+#18 Tabela Tipo_Financiamento
+- ID_tipoFinanciamento (PK)
+- Tipo (Interno ou Externo)
