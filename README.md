@@ -11,6 +11,8 @@ Gestor de Projetos DI UBI
 - Palavra_chave
 - ID_programa (FK)
 - ID_entidade (FK)
+- URL
+- DOI
 
 #2 Tabela Estado
 - ID_Projeto (FK)
