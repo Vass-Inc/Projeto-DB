@@ -3,7 +3,7 @@ Gestor de Projetos DI UBI
 
 ## Tabelas 
 
-# Tabela Projeto (Lista)
+#1 Tabela Projeto (Lista)
 - ID_projeto (PK)
 - Nome
 - Título
@@ -11,30 +11,37 @@ Gestor de Projetos DI UBI
 - Palavra_chave
 - ID_programa (FK)
 - ID_entidade (FK)
-- ID_investigadores (FK)
 
-# Tabela Estado
+#2 Tabela Estado
 - ID_Projeto (FK)
 - ID_tipoEstado(FK)
 
-# Tabela tipo_estado
-- ID_tipoEstado
+#3 Tabela tipo_estado
+- ID_tipoEstado (PK)
 - Estado
 
-# Tabela Data
+#4 Tabela Data
 - ID_projeto (FK)
 - Data_inicio
 - Data_fim
 
-# Tabela Dominio
+#5 Tabela Dominio
 - ID_projeto (FK)
-- Domínio_cientifico
+- ID_dominio (FK)
 
-# Tabela Area
+#6 Tabela Tipo de Dominio
+- ID_dominio (PK)
+- dominioCientifico
+
+#7 Tabela Area
 - ID_projeto (FK)
-- Area_cientifica
+- ID_areaCientifica (FK)
 
-# Tabela Entidade
+#8 Tabela Tipo de Area Cientifica
+- ID_areaCientifica (PK)
+- areaCientifica
+  
+#9 Tabela Entidade
 - ID_entidade (PK)
 - Nome
 - Email
@@ -44,32 +51,35 @@ Gestor de Projetos DI UBI
 - URL
 - ID_pais (FK)
 
-# Tabela País
+#10 Tabela País
 - ID_pais (PK)
 - Nome do País
 
-# Tabela Programa
+#11 Tabela Programa
 - ID_programa (PK)
 - Nome_programa
 
-# Tabela Departamento_Investigação 
-- ID_departamento (PK)
-- Nome_departamento
+#12 Tabela Departamento_Investigação 
+- ID_departamento (FK)
+- ID_membro (FK)
 
-# Tabela Membros_DIUBI
+#13 Tabela Nome de Departamento
+- ID_departamento (PK)
+- nomeDepartamento
+  
+#14 Tabela Membros_DIUBI
 - ID_membro (PK)
 - Numero_funcionario
 - ORCID
 - Funcao
-- ID_unidade(FK)
+- ID_departamento(FK)
 
-# Tabela Publicação
+#15 Tabela Publicação
 - ID_publicacao (PK)
 - ID_projeto (FK)
 - DOI
 - URL
 
-# Tabela de Investigadores
-- ID_investigadores (PK)
+#16 Tabela de Funcao Membro
 - ID_projeto (FK)
 - ID_membro (FK)
