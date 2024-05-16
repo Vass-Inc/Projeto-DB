@@ -4,6 +4,8 @@
 - Título
 - Descrição
 - Palavra_chave
+- Data_inicio
+- Data_fim
 - ID_programa (FK)
 - ID_entidade (FK)
 - ID_investigadores (FK)
@@ -12,14 +14,13 @@
 - ID_Projeto (FK)
 - ID_tipoEstado(FK)
 
+# Tabela Keywords
+-keyword
+-ID_projeto (FK)
+
 # Tabela tipo_estado
 - ID_tipoEstado
 - Estado
-
-# Tabela Data
-- ID_projeto (FK)
-- Data_inicio
-- Data_fim
 
 # Tabela Dominio
 - ID_projeto (FK)
@@ -61,6 +62,10 @@
 # Tabela Publicação
 - ID_publicacao (PK)
 - ID_projeto (FK)
+- value
+
+#Tabela Publicação_referencia
+- ID_publicacao (FK)
 - DOI
 - URL
 
