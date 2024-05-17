@@ -9,9 +9,11 @@ Gestor de Projetos DI UBI
 - Título
 - Descrição
 - Palavra_chave
+- data_inicio
+- data_fim
 - ID_programa (FK)
 - ID_entidade (FK)
-- URL
+- URL             
 - DOI
 
 # 2 Tabela Estado
@@ -22,10 +24,9 @@ Gestor de Projetos DI UBI
 - ID_tipoEstado (PK)
 - Estado
 
-# 4 Tabela Data
+# 4 Tabela Keywords
 - ID_projeto (FK)
-- Data_inicio
-- Data_fim
+- keyword
 
 # 5 Tabela Dominio
 - ID_projeto (FK)
