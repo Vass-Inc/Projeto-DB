@@ -13,9 +13,7 @@ Gestor de Projetos DI UBI
 - data_fim
 - ID_programa (FK)
 - ID_entidade (FK)
-- URL             
-- DOI
-
+  
 # 2 Tabela Estado
 - ID_Projeto (FK)
 - ID_tipoEstado(FK)
@@ -25,26 +23,30 @@ Gestor de Projetos DI UBI
 - Estado
 
 # 4 Tabela Keywords
-- ID_projeto (FK)
+- ID_keywords (PK)
 - keyword
 
-# 5 Tabela Dominio
+# 5 Tabela keyword_project
+- ID_projeto (FK)
+- ID-keywords (FK)
+
+# 6 Tabela Dominio
 - ID_projeto (FK)
 - ID_dominio (FK)
 
-# 6 Tabela Tipo_Dominio
+# 7 Tabela Tipo_Dominio
 - ID_dominio (PK)
 - dominioCientifico
 
-# 7 Tabela Area
+# 8 Tabela Area
 - ID_projeto (FK)
 - ID_areaCientifica (FK)
 
-# 8 Tabela Tipo_Area_Cientifica
+# 9 Tabela Tipo_Area_Cientifica
 - ID_areaCientifica (PK)
 - areaCientifica
   
-# 9 Tabela Entidade
+# 10 Tabela Entidade
 - ID_entidade (PK)
 - Nome
 - Email
@@ -54,43 +56,56 @@ Gestor de Projetos DI UBI
 - URL
 - ID_pais (FK)
 
-# 10 Tabela País
+# 11 Tabela País
 - ID_pais (PK)
 - Nome do País
 
-# 11 Tabela Programa
+# 12 Tabela Programa
 - ID_programa (PK)
 - Nome_programa
 
-# 12 Tabela Departamento_Investigação 
+# 13 Tabela Departamento_Investigação 
 - ID_departamento (FK)
 - ID_membro (FK)
 
-# 13 Tabela Nome_Departamento
+# 14 Tabela Nome_Departamento
 - ID_departamento (PK)
 - nomeDepartamento
   
-# 14 Tabela Membros_DIUBI
+# 15 Tabela Membros_DIUBI
 - ID_membro (PK)
 - Numero_funcionario
 - ORCID
 - Funcao
 - ID_departamento(FK)
 
-# 15 Tabela Publicação
+# 16 Tabela Publicação
 - ID_publicacao (PK)
 - ID_projeto (FK)
 - DOI
 - URL
 
-# 16 Tabela Funcao_Membro
+# 17 Tabela Funcao_Membro
 - ID_projeto (FK)
 - ID_membro (FK)
 
-# 17 Tabela Financiamento
+# 18 Tabela Financiamento
 - ID_projeto (FK)
 - ID_tipoFinanciamento (FK)
 
-# 18 Tabela Tipo_Financiamento
+# 19 Tabela Tipo_Financiamento
 - ID_tipoFinanciamento (PK)
 - Tipo (Interno ou Externo)
+
+# 20 Tabela Identificadores
+- ID_identificador
+- Tipo (URL OU DOI)
+- Valor
+
+# 21 Tabela Identificadores_Projeto
+- ID_projeto (FK)
+- ID_identificador (FK)
+
+# 22 Tabela Publicacao_Identificadores
+- ID_publicacao (FK)
+- ID_identificador (FK)
