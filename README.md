@@ -83,18 +83,18 @@ Gestor de Projetos DI UBI
 - Tipo (URL OU DOI)
 - Valor
 
-# 17 Tabela Funcao_Membro
+# 17 Tabela Publicacao_Identificadores
+- ID_publicacao (FK)
+- ID_identificador (FK)
+
+# 18 Tabela Funcao_Membro
 - ID_projeto (FK)
 - ID_membro (FK)
 
-# 18 Tabela Financiamento
+# 19 Tabela Financiamento
 - ID_projeto (FK)
 - ID_tipoFinanciamento (FK)
 
-# 19 Tabela Tipo_Financiamento
+# 20 Tabela Tipo_Financiamento
 - ID_tipoFinanciamento (PK)
 - Tipo (Interno ou Externo)
-
-# 20 Tabela Publicacao_Identificadores
-- ID_publicacao (FK)
-- ID_identificador (FK)
