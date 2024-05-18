@@ -11,8 +11,6 @@ Gestor de Projetos DI UBI
 - Palavra_chave
 - data_inicio
 - data_fim
-- ID_programa (FK)
-- ID_entidade (FK)
   
 # 2 Tabela Estado
 - ID_Projeto (FK)
@@ -55,6 +53,7 @@ Gestor de Projetos DI UBI
 - Morada
 - URL
 - ID_pais (FK)
+- ID_projeto (FK)
 
 # 11 Tabela País
 - ID_pais (PK)
@@ -63,6 +62,7 @@ Gestor de Projetos DI UBI
 # 12 Tabela Programa
 - ID_programa (PK)
 - Nome_programa
+- ID_projeto (FK)
 
 # 13 Tabela Departamento_Investigação 
 - ID_departamento (FK)
