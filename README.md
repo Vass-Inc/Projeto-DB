@@ -95,10 +95,6 @@ Gestor de Projetos DI UBI
 - ID_tipoFinanciamento (PK)
 - Tipo (Interno ou Externo)
 
-# 21 Tabela Identificadores_Projeto
-- ID_projeto (FK)
-- ID_identificador (FK)
-
-# 22 Tabela Publicacao_Identificadores
+# 20 Tabela Publicacao_Identificadores
 - ID_publicacao (FK)
 - ID_identificador (FK)
