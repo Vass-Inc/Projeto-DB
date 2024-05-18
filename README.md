@@ -78,6 +78,12 @@ Gestor de Projetos DI UBI
 - ORCID
 - Funcao
 
+# 16 Tabela Publicação
+- ID_publicacao (PK)
+- ID_projeto (FK)
+- DOI
+- URL
+
 # 17 Tabela Funcao_Membro
 - ID_projeto (FK)
 - ID_membro (FK)
