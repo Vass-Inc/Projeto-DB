@@ -78,18 +78,18 @@ Gestor de Projetos DI UBI
 - ORCID
 - Funcao
 
-# 16 Tabela Publicação
+# 16 Tabela Funcao_Membro
+- ID_projeto (FK)
+- ID_membro (FK)
+
+# 17 Tabela Publicação
 - ID_publicacao (PK)
 - Tipo (URL OU DOI)
 - Valor
 
-# 17 Tabela Publicacao_Identificadores
+# 18 Tabela Publicacao_Identificadores
 - ID_publicacao (FK)
-- ID_identificador (FK)
-
-# 18 Tabela Funcao_Membro
 - ID_projeto (FK)
-- ID_membro (FK)
 
 # 19 Tabela Financiamento
 - ID_projeto (FK)
@@ -98,3 +98,4 @@ Gestor de Projetos DI UBI
 # 20 Tabela Tipo_Financiamento
 - ID_tipoFinanciamento (PK)
 - Tipo (Interno ou Externo)
+- competitivo (sim ou nao)
