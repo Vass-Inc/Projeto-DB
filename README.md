@@ -20,11 +20,11 @@ Gestor de Projetos DI UBI
 - ID_tipoEstado (PK)
 - Estado
 
-# Tabela Keywords
+# 4 Tabela Keywords
 - ID_keyword(PK)
 - keyword
 
-# Tabela Keywords_projeto
+# 5 Tabela Keywords_projeto
 - ID_keyword(FK)
 - ID_projeto (FK)
 
@@ -68,7 +68,7 @@ Gestor de Projetos DI UBI
 - ID_departamento (FK)
 - ID_membro (FK)
 
-# 14 Tabela Nome_Departamento
+# 14 Tabela Departamento
 - ID_departamento (PK)
 - nomeDepartamento
   
@@ -80,9 +80,8 @@ Gestor de Projetos DI UBI
 
 # 16 Tabela Publicação
 - ID_publicacao (PK)
-- ID_projeto (FK)
-- DOI
-- URL
+- Tipo (URL OU DOI)
+- Valor
 
 # 17 Tabela Funcao_Membro
 - ID_projeto (FK)
@@ -95,11 +94,6 @@ Gestor de Projetos DI UBI
 # 19 Tabela Tipo_Financiamento
 - ID_tipoFinanciamento (PK)
 - Tipo (Interno ou Externo)
-
-# 20 Tabela Identificadores
-- ID_identificador
-- Tipo (URL OU DOI)
-- Valor
 
 # 21 Tabela Identificadores_Projeto
 - ID_projeto (FK)
