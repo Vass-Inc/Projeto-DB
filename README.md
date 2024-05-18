@@ -23,7 +23,11 @@ Gestor de Projetos DI UBI
 - Estado
 
 # Tabela Keywords
+- ID_keyword(PK)
 - keyword
+
+# Tabela Keywords_projeto
+- ID_keyword(FK)
 - ID_projeto (FK)
 
 # 6 Tabela Dominio
