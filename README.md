@@ -77,7 +77,6 @@ Gestor de Projetos DI UBI
 - Numero_funcionario
 - ORCID
 - Funcao
-- ID_departamento(FK)
 
 # 16 Tabela Publicação
 - ID_publicacao (PK)
