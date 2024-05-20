@@ -1,21 +1,26 @@
-# Tabela Projeto
+# Tabela Projeto (Lista)
 - ID_projeto (PK)
 - Nome
 - Título
 - Descrição
 - Palavra_chave
+- Data_inicio
+- Data_fim
 - ID_programa (FK)
 - ID_entidade (FK)
 - ID_investigadores (FK)
 
 # Tabela Estado
-- ID_Projeto
-- Estado
+- ID_Projeto (FK)
+- ID_tipoEstado(FK)
 
-# Tabela Data
-- ID_projeto (FK)
-- Data_inicio
-- Data_fim
+# Tabela Keywords
+-keyword
+-ID_projeto (FK)
+
+# Tabela tipo_estado
+- ID_tipoEstado
+- Estado
 
 # Tabela Dominio
 - ID_projeto (FK)
@@ -57,6 +62,10 @@
 # Tabela Publicação
 - ID_publicacao (PK)
 - ID_projeto (FK)
+- value
+
+#Tabela Publicação_referencia
+- ID_publicacao (FK)
 - DOI
 - URL
 
