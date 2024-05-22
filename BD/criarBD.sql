@@ -1,0 +1,11 @@
+USE master
+
+IF ( EXISTS( SELECT * FROM [sys].[Databases] WHERE name = 'PROJETO'))
+BEGIN
+    DROP DATABASE PROJETO
+END
+
+IF (NOT EXISTS( SELECT * FROM [sys].[Databases] WHERE name = 'PROJETO'))
+BEGIN
+    CREATE DATABASE PROJETO
+END

@@ -9,6 +9,5 @@ public class MainController {
     @FXML
     public void btnEntrar(ActionEvent event) {
         System.out.println("hello world");
-
     }
 }
