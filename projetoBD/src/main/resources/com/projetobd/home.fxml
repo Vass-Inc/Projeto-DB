@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetobd.controllers.HomeController">
+    <TableView fx:id="tableView">
+        <!-- Define as colunas aqui -->
+    </TableView>
+    <Button text="Adicionar" onAction="#handleAdd"/>
+    <Button text="Editar" onAction="#handleEdit"/>
+    <Button text="Deletar" onAction="#handleDelete"/>
+</AnchorPane>

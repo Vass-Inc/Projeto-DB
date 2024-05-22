@@ -1,3 +1,5 @@
+USE PROJETO
+
 CREATE TABLE Tipo_de_Estado
 (
   ID_tipoEstado INT NOT NULL IDENTITY(1,1),
@@ -130,6 +132,8 @@ CREATE TABLE Pais
 (
   ID_pais INT NOT NULL,
   nomePais VARCHAR(120) NOT NULL,
+
+
 );
 
 CREATE TABLE Publicacao_Identificadores
