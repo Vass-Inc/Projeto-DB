@@ -42,52 +42,84 @@ public class Database {
         return projetos;
     }
 
-    public static void addProjeto(Projetos projeto) {
-        String insertProjetoQuery = "INSERT INTO Projetos_(Lista) (nomeCurto, titulo, descricao, dataInicio, dataFim) VALUES (?, ?, ?, ?, ?)";
+    public static void addProjeto(Projetos projeto, List<String> palavrasChave, List<Integer> dominios, List<Integer> areas, List<Integer> entidades, List<Integer> estados, List<Integer> financiamentos) {
+        try (Connection connection = getConnection()) {
+            String query = "INSERT INTO Projetos_(Lista) (nomeCurto, titulo, descricao, dataInicio, dataFim) VALUES (?, ?, ?, ?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+                statement.setString(1, projeto.getNome());
+                statement.setString(2, projeto.getTitulo());
+                statement.setString(3, projeto.getDescricao());
+                statement.setDate(4, projeto.getDataInicio());
+                statement.setDate(5, projeto.getDataFim());
+                statement.executeUpdate();
 
-        try (Connection connection = getConnection();
-             PreparedStatement projetoStatement = connection.prepareStatement(insertProjetoQuery, Statement.RETURN_GENERATED_KEYS)) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int projetoId = generatedKeys.getInt(1);
 
-            // Inserir projeto
-            projetoStatement.setString(1, projeto.getNome());
-            projetoStatement.setString(2, projeto.getTitulo());
-            projetoStatement.setString(3, projeto.getDescricao());
-            projetoStatement.setDate(4, projeto.getDataInicio());
-            projetoStatement.setDate(5, projeto.getDataFim());
-            projetoStatement.executeUpdate();
+                    if (palavrasChave != null) {
+                        for (String palavraChave : palavrasChave) {
+                            addKeyword(projetoId, palavraChave);
+                        }
+                    }
 
-            ResultSet generatedKeys = projetoStatement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int projetoId = generatedKeys.getInt(1);
-                projeto.setIdProjeto(projetoId);
+                    if (dominios != null) {
+                        for (int dominio : dominios) {
+                            addDominioToProjeto(projetoId, dominio);
+                        }
+                    }
 
+                    if (areas != null) {
+                        for (int area : areas) {
+                            addAreaToProjeto(projetoId, area);
+                        }
+                    }
 
+                    if (entidades != null) {
+                        for (int entidade : entidades) {
+                            addEntidadeToProjeto(projetoId, entidade);
+                        }
+                    }
+
+                    if (estados != null) {
+                        for (int estado : estados) {
+                            addEstadoToProjeto(projetoId, estado);
+                        }
+                    }
+
+                    if (financiamentos != null) {
+                        for (int financiamento : financiamentos) {
+                            addFinanciamentoToProjeto(projetoId, financiamento);
+                        }
+                    }
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private static void addKeywordToProjeto(int projetoId, String keyword) throws SQLException {
-        String insertKeywordQuery = "INSERT INTO Keywords (keyword) VALUES (?)";
+    private static void addKeywordToProjeto(int projetoId, int keywordId) throws SQLException {
         String insertKeywordProjetoQuery = "INSERT INTO Keyword_Projeto (ID_projeto, ID_keyword) VALUES (?, ?)";
-
         try (Connection connection = getConnection();
-             PreparedStatement keywordStatement = connection.prepareStatement(insertKeywordQuery, Statement.RETURN_GENERATED_KEYS);
-             PreparedStatement keywordProjetoStatement = connection.prepareStatement(insertKeywordProjetoQuery)) {
+             PreparedStatement statement = connection.prepareStatement(insertKeywordProjetoQuery)) {
+            statement.setInt(1, projetoId);
+            statement.setInt(2, keywordId);
+            statement.executeUpdate();
+        }
+    }
 
-            // Inserir palavra-chave
-            keywordStatement.setString(1, keyword);
-            keywordStatement.executeUpdate();
+    private static void addKeyword(int projetoId, String palavraChave) throws SQLException {
+        String insertKeywordQuery = "INSERT INTO Keywords (keyword) VALUES (?)";
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(insertKeywordQuery, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, palavraChave);
+            statement.executeUpdate();
 
-            ResultSet generatedKeys = keywordStatement.getGeneratedKeys();
+            ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int keywordId = generatedKeys.getInt(1);
-
-                // Inserir relação entre projeto e palavra-chave
-                keywordProjetoStatement.setInt(1, projetoId);
-                keywordProjetoStatement.setInt(2, keywordId);
-                keywordProjetoStatement.executeUpdate();
+                addKeywordToProjeto(projetoId, keywordId);
             }
         }
     }
