@@ -5,35 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/AreaCientifica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/AreaProjeto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Departamento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Dominio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/DominioProjeto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Estado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/EstadoProjeto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/FinancaProjeto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Financiamento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/FuncaoMembro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Keyword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/KeywordProjeto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/MembroDepartamento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Membros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Pais.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Programa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Publicacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/PublicacaoIdentificadores.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Entidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Entidade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,27 +60,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.projetobd.controllers" />
@@ -147,7 +125,8 @@
       <workItem from="1716384599130" duration="7138000" />
       <workItem from="1716397290960" duration="125000" />
       <workItem from="1716397463841" duration="146000" />
-      <workItem from="1716453531571" duration="9995000" />
+      <workItem from="1716453531571" duration="13463000" />
+      <workItem from="1716477800789" duration="347000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,7 @@ public class Projetos {
     private Date dataInicio;
     private Date dataFim;
 
+
     public Projetos(int idProjeto, String nome, String titulo, String descricao, Date dataInicio, Date dataFim) {
         this.idProjeto = idProjeto;
         this.nome = nome;

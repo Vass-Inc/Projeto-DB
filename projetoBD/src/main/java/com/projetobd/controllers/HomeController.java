@@ -64,7 +64,7 @@ public class HomeController {
 
     private void openDetalhesProjeto(Projetos projeto) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("detalhesProjeto.fxml"));
             Parent root = loader.load();
 
             DetalhesProjetoController detalhesProjetoController = loader.getController();
@@ -96,5 +96,6 @@ public class HomeController {
     }
 
     public void handleDelete(ActionEvent actionEvent) {
+
     }
 }
