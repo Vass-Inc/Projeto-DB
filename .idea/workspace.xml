@@ -4,18 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/AreaCientifica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/AreaProjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Departamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Dominio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/DominioProjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Estado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/EstadoProjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/FinancaProjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Financiamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/FuncaoMembro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Keyword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/KeywordProjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/MembroDepartamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Membros.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Pais.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Programa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Publicacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/PublicacaoIdentificadores.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Entidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Entidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="masg" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Vass-Inc&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Vass-Inc/Projeto-DB.git&quot;,
+    &quot;accountId&quot;: &quot;8dc1537e-8d59-403e-a08b-25c081f182b5&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -23,6 +75,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2fmCGV2ZQTDPXu3aSnLL2FskLLT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,14 +87,55 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.projetobd.controllers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.projetobd.Main" />
+      <module name="projetoBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.projetobd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,8 +144,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714396774278</updated>
+      <workItem from="1716384599130" duration="7138000" />
+      <workItem from="1716397290960" duration="125000" />
+      <workItem from="1716397463841" duration="146000" />
+      <workItem from="1716453531571" duration="9995000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

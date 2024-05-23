@@ -1,15 +1,18 @@
 package com.projetobd.models;
 
 import javax.sound.midi.spi.MidiDeviceProvider;
+import java.sql.Date;
 
 public class Projetos {
+    private int idProjeto;
     private String nome;
     private String titulo;
     private String descricao;
-    private String dataInicio;
-    private String dataFim;
+    private Date dataInicio;
+    private Date dataFim;
 
-    public Projetos(String nome, String titulo, String descricao, String dataInicio, String dataFim){
+    public Projetos(int idProjeto, String nome, String titulo, String descricao, Date dataInicio, Date dataFim) {
+        this.idProjeto = idProjeto;
         this.nome = nome;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -17,9 +20,18 @@ public class Projetos {
         this.dataFim = dataFim;
     }
 
+    public int getIdProjeto() {
+        return idProjeto;
+    }
+
+    public void setIdProjeto(int idProjeto) {
+        this.idProjeto = idProjeto;
+    }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -27,6 +39,7 @@ public class Projetos {
     public String getTitulo() {
         return titulo;
     }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -34,23 +47,24 @@ public class Projetos {
     public String getDescricao() {
         return descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public String getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
-    public void setDataInicio(String dataInicio) {
+
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
-    public void setDataFim(String dataFim) {
+
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
-
-
 }

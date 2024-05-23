@@ -1,19 +1,32 @@
 package com.projetobd.models;
 
 public class Entidade {
+    private int idEntidade;
     private String nome;
     private String email;
     private String telefone;
-    private String endereco;
+    private String designacao;
     private String morada;
-    private String pais;
+    private int idProjeto;
+    private int idPais;
 
-    public String getPais() {
-        return pais;
+    public Entidade(int idEntidade, String nome, String email, String telefone, String designacao, String morada, int idProjeto, int idPais) {
+        this.idEntidade = idEntidade;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.designacao = designacao;
+        this.morada = morada;
+        this.idProjeto = idProjeto;
+        this.idPais = idPais;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public int getIdEntidade() {
+        return idEntidade;
+    }
+
+    public void setIdEntidade(int idEntidade) {
+        this.idEntidade = idEntidade;
     }
 
     public String getNome() {
@@ -40,12 +53,12 @@ public class Entidade {
         this.telefone = telefone;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getDesignacao() {
+        return designacao;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setDesignacao(String designacao) {
+        this.designacao = designacao;
     }
 
     public String getMorada() {
@@ -56,12 +69,20 @@ public class Entidade {
         this.morada = morada;
     }
 
-    public Entidade(String nome, String email, String telefone, String endereco, String morada, String pais) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.morada = morada;
-        this.pais = pais;
+    public int getIdProjeto() {
+        return idProjeto;
+    }
+
+    public void setIdProjeto(int idProjeto) {
+        this.idProjeto = idProjeto;
+    }
+
+    public int getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(int idPais) {
+        this.idPais = idPais;
     }
 }
+

@@ -3,6 +3,7 @@ module com.projetobd {
     requires javafx.fxml;
     requires java.desktop;
     requires javafx.graphics;
+    requires java.sql;
 
 
     opens com.projetobd to javafx.fxml;
