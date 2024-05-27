@@ -1,20 +1,20 @@
 USE PROJETO
 
-CREATE TABLE Tipo_de_Estado
+CREATE TABLE TipoEstado
 (
   ID_tipoEstado INT NOT NULL IDENTITY(1,1),
   estado VARCHAR(155) NOT NULL,
   PRIMARY KEY (ID_tipoEstado)
 );
 
-CREATE TABLE Tipo_de_Dominio
+CREATE TABLE TipoDominio
 (
   ID_dominio INT NOT NULL IDENTITY(1,1),
   dominioCientifico VARCHAR(255) NOT NULL,
   PRIMARY KEY (ID_dominio)
 );
 
-CREATE TABLE Tipo_de_Area
+CREATE TABLE TipoArea
 (
   ID_areaCientifica INT NOT NULL IDENTITY(1,1),
   areaCientifica VARCHAR(255) NOT NULL,
@@ -31,14 +31,14 @@ CREATE TABLE Membros_DIUBI
   UNIQUE (orcid)
 );
 
-CREATE TABLE Tipo_Financiamento
+CREATE TABLE TipoFinanciamento
 (
   ID_tipoFinanciamento INT NOT NULL IDENTITY(1,1),
   Tipo bit NOT NULL,
   PRIMARY KEY (ID_tipoFinanciamento)
 );
 
-CREATE TABLE Nome_Departamento
+CREATE TABLE NomeDepartamento
 (
   ID_departamento INT NOT NULL IDENTITY(1,1),
   nomeDepartamento VARCHAR(255) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE Keywords
   PRIMARY KEY (ID_keyword)
 );
 
-CREATE TABLE Departamento_
+CREATE TABLE Departamento
 (
   ID_departamento INT NOT NULL,
   ID_membro INT NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE Departamento_
   FOREIGN KEY (ID_membro) REFERENCES Membros_DIUBI(ID_membro)
 );
 
-CREATE TABLE Estado_do_Projeto
+CREATE TABLE EstadoProjeto
 (
   ID_tipoEstado INT NOT NULL,
   ID_projeto INT NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE Entidade
   FOREIGN KEY (ID_pais) REFERENCES Pais(ID_pais)
 );
 
-CREATE TABLE Domínio_Cientifico
+CREATE TABLE DominioProjeto
 (
   ID_dominio INT NOT NULL,
   ID_projeto INT NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE Domínio_Cientifico
   FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto)
 );
 
-CREATE TABLE Área_Cientifica
+CREATE TABLE AreaProjeto
 (
   ID_projeto INT NOT NULL,
   ID_areaCientifica INT NOT NULL,
@@ -130,13 +130,11 @@ CREATE TABLE Área_Cientifica
 
 CREATE TABLE Pais
 (
-  ID_pais INT NOT NULL,
+  ID_pais INT NOT NULL IDENTITY(1,1);,
   nomePais VARCHAR(120) NOT NULL,
-
-
 );
 
-CREATE TABLE Publicacao_Identificadores
+CREATE TABLE PublicacaoProjeto
 (
   ID_projeto INT NOT NULL,
   ID_identificadores INT NOT NULL,
@@ -154,7 +152,7 @@ CREATE TABLE Financiamento
   FOREIGN KEY (ID_tipoFinanciamento) REFERENCES Tipo_Financiamento(ID_tipoFinanciamento)
 );
 
-CREATE TABLE Funcao_Membro
+CREATE TABLE FuncaoProjeto
 (
   ID_projeto INT NOT NULL,
   ID_membro INT NOT NULL,
@@ -162,7 +160,7 @@ CREATE TABLE Funcao_Membro
   FOREIGN KEY (ID_membro) REFERENCES Membros_DIUBI(ID_membro)
 );
 
-CREATE TABLE Keyword_Projeto
+CREATE TABLE KeywordProjeto
 (
   ID_projeto INT NOT NULL,
   ID_keyword INT NOT NULL,

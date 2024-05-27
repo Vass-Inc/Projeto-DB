@@ -1,7 +1,8 @@
 package com.projetobd.models;
 
-import javax.sound.midi.spi.MidiDeviceProvider;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Projetos {
     private int idProjeto;
@@ -10,15 +11,24 @@ public class Projetos {
     private String descricao;
     private Date dataInicio;
     private Date dataFim;
+    private List<Estado> estados;
+    private List<Keyword> keywords;
 
-
-    public Projetos(int idProjeto, String nome, String titulo, String descricao, Date dataInicio, Date dataFim) {
-        this.idProjeto = idProjeto;
+    public Projetos(String nome, Date dataInicio, String descricao, String titulo, List<Estado> estados, List<Keyword> keywords) {
         this.nome = nome;
-        this.titulo = titulo;
-        this.descricao = descricao;
         this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.descricao = descricao;
+        this.titulo = titulo;
+        this.estados = estados;
+        this.keywords = keywords;
+    }
+
+    public void addEstado(Estado estado) {
+        this.estados.add(estado);
+    }
+
+    public void addKeywords(Keyword keyword){
+        this.keywords.add(keyword);
     }
 
     public int getIdProjeto() {

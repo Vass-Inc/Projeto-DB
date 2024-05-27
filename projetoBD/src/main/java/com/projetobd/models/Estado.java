@@ -4,7 +4,7 @@ public class Estado {
     private int idEstado;
     private String estado;
 
-    public Estado(int idEstado, String estado) {
+    public Estado(String estado) {
         this.idEstado = idEstado;
         this.estado = estado;
     }
