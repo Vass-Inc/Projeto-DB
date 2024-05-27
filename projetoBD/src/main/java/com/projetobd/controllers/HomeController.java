@@ -29,13 +29,11 @@ public class HomeController {
     @FXML
     private TableColumn<Projetos, String> colunaTitulo;
     @FXML
-    private TableColumn<Projetos, String> colunaDescricao;
-    @FXML
     private TableColumn<Projetos, String> colunaPalavraChave;
     @FXML
     private TableColumn<Projetos, java.sql.Date> colunaDataInicio;
     @FXML
-    private TableColumn<Projetos, java.sql.Date> colunaDataFim;
+    private TableColumn<Projetos, java.sql.Date> colunaEstado;
 
     private ObservableList<Projetos> projetoList = FXCollections.observableArrayList();
 
@@ -43,10 +41,9 @@ public class HomeController {
         colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("idProjeto"));
         colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
         colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        colunaDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
         colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
-        colunaDataFim.setCellValueFactory(new PropertyValueFactory<>("dataFim"));
+        colunaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         loadDataBase();
 
@@ -90,9 +87,7 @@ public class HomeController {
     }
 
     public void handleAdd(ActionEvent actionEvent) {
-    }
 
-    public void handleEdit(ActionEvent actionEvent) {
     }
 
     public void handleDelete(ActionEvent actionEvent) {

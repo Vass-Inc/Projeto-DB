@@ -137,7 +137,7 @@ public class Database {
     }
 
     private static void addAreaToProjeto(int projetoId, int areaId) throws SQLException {
-        String insertAreaProjetoQuery = "INSERT INTO Área_Cientifica (ID_projeto, ID_areaCientifica) VALUES (?, ?)";
+        String insertAreaProjetoQuery = "INSERT INTO Area_Cientifica (ID_projeto, ID_areaCientifica) VALUES (?, ?)";
 
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(insertAreaProjetoQuery)) {
