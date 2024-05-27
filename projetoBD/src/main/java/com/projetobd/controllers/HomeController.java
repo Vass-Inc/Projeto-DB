@@ -9,14 +9,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 
 public class HomeController {
 
@@ -31,59 +38,84 @@ public class HomeController {
     @FXML
     private TableColumn<Projetos, String> colunaPalavraChave;
     @FXML
-    private TableColumn<Projetos, java.sql.Date> colunaDataInicio;
+    private TableColumn<Projetos, LocalDate> colunaDataInicio;
     @FXML
-    private TableColumn<Projetos, java.sql.Date> colunaEstado;
+    private TableColumn<Projetos, String> colunaEstado;
 
-    private ObservableList<Projetos> projetoList = FXCollections.observableArrayList();
+    private ObservableList<Projetos> projetos = FXCollections.observableArrayList();
 
     private void initialize() {
-        colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("idProjeto"));
-        colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
-        colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
-        colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
-        colunaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-
-        loadDataBase();
+        carregarDados();
 
         tableView.setRowFactory(tv -> {
             TableRow<Projetos> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2 && (!row.isEmpty())) {
                     Projetos projeto = row.getItem();
-                    openDetalhesProjeto(projeto);
+                    mostrarDetalhesProjeto(projeto.getIdProjeto());
                 }
             });
             return row;
         });
     }
 
-    private void openDetalhesProjeto(Projetos projeto) {
+    private void carregarDados() {
+        projetos = FXCollections.observableArrayList();
+        try (Connection connection = Database.getConnection()) {
+            String query = "SELECT p.ID_projeto, p.nomeCurto, p.titulo, p.palavraChave, p.dataInicio, e.estado " +
+                    "FROM Projetos p " +
+                    "JOIN EstadoProjeto ep ON p.ID_projeto = ep.ID_projeto " +
+                    "JOIN TipoEstado e ON ep.ID_tipoEstado = e.ID_tipoEstado";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                projetos.add(new Projetos(
+                        resultSet.getInt("ID_projeto"),
+                        resultSet.getString("nomeCurto"),
+                        resultSet.getString("titulo"),
+                        resultSet.getString("palavraChave"),
+                        resultSet.getDate("dataInicio").toLocalDate(),
+                        resultSet.getString("estado")
+                ));
+            }
+        } catch (SQLException e) {
+            showAlert("Erro ao carregar dados", e.getMessage());
+        }
+
+        colunaIdProjeto.setCellValueFactory(cellData -> cellData.getValue().idProjetoProperty().asObject());
+        colunaNomeCurto.setCellValueFactory(cellData -> cellData.getValue().nomeCurtoProperty());
+        colunaTitulo.setCellValueFactory(cellData -> cellData.getValue().tituloProperty());
+        colunaPalavraChave.setCellValueFactory(cellData -> cellData.getValue().palavraChaveProperty());
+        colunaDataInicio.setCellValueFactory(cellData -> cellData.getValue().dataInicioProperty());
+        colunaEstado.setCellValueFactory(cellData -> cellData.getValue().estadoProperty());
+
+        tableView.setItems(projetos);
+    }
+
+    private void mostrarDetalhesProjeto(int idProjeto) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("detalhesProjeto.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/projetobd/views/detalhesProjeto.fxml"));
             Parent root = loader.load();
 
-            DetalhesProjetoController detalhesProjetoController = loader.getController();
-
-            detalhesProjetoController.initData(projeto);
+            DetalhesProjetoController controller = loader.getController();
+            controller.setIdProjeto(idProjeto);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Detalhes do Projeto");
-
-            stage.initModality(Modality.APPLICATION_MODAL);
-
-            stage.showAndWait();
+            stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            showAlert("Erro ao carregar tela de detalhes", e.getMessage());
         }
     }
 
-
-    private void loadDataBase() {
-        projetoList.setAll(Database.getAllProjetos());
-        tableView.setItems(projetoList);
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public void handleAdd(ActionEvent actionEvent) {

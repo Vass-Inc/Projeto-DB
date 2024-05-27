@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
-      <change afterPath="$PROJECT_DIR$/BD/Procedures.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD/Procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/Procedures.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BD/criarTabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/criarTabelas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Keyword.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Keyword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,29 +63,29 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Vass",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.scopes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.projetobd.controllers" />
@@ -140,6 +139,7 @@
       <workItem from="1716805950025" duration="2177000" />
       <workItem from="1716809360636" duration="354000" />
       <workItem from="1716826224414" duration="290000" />
+      <workItem from="1716834436708" duration="6587000" />
     </task>
     <servers />
   </component>

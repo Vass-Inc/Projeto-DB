@@ -1,81 +1,77 @@
 package com.projetobd.models;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+
+import javafx.beans.property.*;
 
 public class Projetos {
-    private int idProjeto;
-    private String nome;
-    private String titulo;
-    private String descricao;
-    private Date dataInicio;
-    private Date dataFim;
-    private List<Estado> estados;
-    private List<Keyword> keywords;
+    private final IntegerProperty idProjeto;
+    private final StringProperty nomeCurto;
+    private final StringProperty titulo;
+    private final StringProperty palavraChave;
+    private final ObjectProperty<LocalDate> dataInicio;
+    private final StringProperty estado;
 
-    public Projetos(String nome, Date dataInicio, String descricao, String titulo, List<Estado> estados, List<Keyword> keywords) {
-        this.nome = nome;
-        this.dataInicio = dataInicio;
-        this.descricao = descricao;
-        this.titulo = titulo;
-        this.estados = estados;
-        this.keywords = keywords;
-    }
-
-    public void addEstado(Estado estado) {
-        this.estados.add(estado);
-    }
-
-    public void addKeywords(Keyword keyword){
-        this.keywords.add(keyword);
+    public Projetos(int idProjeto, String nomeCurto, String titulo, String palavraChave, LocalDate dataInicio, String estado) {
+        this.idProjeto = new SimpleIntegerProperty(idProjeto);
+        this.nomeCurto = new SimpleStringProperty(nomeCurto);
+        this.titulo = new SimpleStringProperty(titulo);
+        this.palavraChave = new SimpleStringProperty(palavraChave);
+        this.dataInicio = new SimpleObjectProperty<>(dataInicio);
+        this.estado = new SimpleStringProperty(estado);
     }
 
     public int getIdProjeto() {
+        return idProjeto.get();
+    }
+
+    public IntegerProperty idProjetoProperty() {
         return idProjeto;
     }
 
-    public void setIdProjeto(int idProjeto) {
-        this.idProjeto = idProjeto;
+    public String getNomeCurto() {
+        return nomeCurto.get();
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public StringProperty nomeCurtoProperty() {
+        return nomeCurto;
     }
 
     public String getTitulo() {
+        return titulo.get();
+    }
+
+    public StringProperty tituloProperty() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getPalavraChave() {
+        return palavraChave.get();
     }
 
-    public String getDescricao() {
-        return descricao;
+    public StringProperty palavraChaveProperty() {
+        return palavraChave;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public LocalDate getDataInicio() {
+        return dataInicio.get();
     }
 
-    public Date getDataInicio() {
+    public ObjectProperty<LocalDate> dataInicioProperty() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
+    public String getEstado() {
+        return estado.get();
     }
 
-    public Date getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(Date dataFim) {
-        this.dataFim = dataFim;
+    public StringProperty estadoProperty() {
+        return estado;
     }
 }
