@@ -8,7 +8,6 @@ Gestor de Projetos DI UBI
 - Nome
 - Título
 - Descrição
-- Palavra_chave
 - data_inicio
 - data_fim
   
