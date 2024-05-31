@@ -1,12 +1,14 @@
 package com.projetobd.controllers;
 
 import com.projetobd.Database;
+import com.projetobd.Main;
 import com.projetobd.models.Projetos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -71,12 +73,12 @@ public class HomeController {
 
             while (resultSet.next()) {
                 projetos.add(new Projetos(
-                        resultSet.getInt("ID_projeto"),
-                        resultSet.getString("nomeCurto"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("palavraChave"),
-                        resultSet.getDate("dataInicio").toLocalDate(),
-                        resultSet.getString("estado")
+                        resultSet.getInt("ID"),
+                        resultSet.getString("Nome"),
+                        resultSet.getString("Título"),
+                        resultSet.getString("Keywords"),
+                        resultSet.getDate("Data Início").toLocalDate(),
+                        resultSet.getString("Estado")
                 ));
             }
         } catch (SQLException e) {
@@ -118,8 +120,12 @@ public class HomeController {
         alert.showAndWait();
     }
 
-    public void handleAdd(ActionEvent actionEvent) {
-
+    public void handleAdd(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addProjeto.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void handleDelete(ActionEvent actionEvent) {
