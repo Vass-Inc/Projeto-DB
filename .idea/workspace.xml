@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
+      <change afterPath="$PROJECT_DIR$/BD/Inserts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD/criarTabelas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/criarTabelas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddProjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddProjeto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Projetos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,19 +70,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Vass",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Pedro/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "last_opened_file_path": "C:/dev/sqljdbc_12.6",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.scopes",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -149,6 +152,9 @@
       <workItem from="1717179061867" duration="7896000" />
       <workItem from="1717249904302" duration="4918000" />
       <workItem from="1717263927840" duration="809000" />
+      <workItem from="1717265043838" duration="3298000" />
+      <workItem from="1717271686742" duration="25000" />
+      <workItem from="1717271746172" duration="5187000" />
     </task>
     <servers />
   </component>

@@ -100,8 +100,7 @@ CREATE TABLE Projetos
   dataInicio DATE NOT NULL,
   dataFim DATE NOT NULL,
   ID_entidade INT NOT NULL,
-  PRIMARY KEY (ID_projeto),
-  FOREIGN KEY (ID_entidade) REFERENCES Entidade(ID_entidade)
+  PRIMARY KEY (ID_projeto)
 );
 
 CREATE TABLE Entidade
@@ -115,8 +114,14 @@ CREATE TABLE Entidade
   ID_projeto INT NOT NULL,
   ID_pais INT NOT NULL,
   PRIMARY KEY (ID_entidade),
-  FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto),
   FOREIGN KEY (ID_pais) REFERENCES Pais(ID_pais)
+);
+
+CREATE TABLE EntidadeProjeto(
+	ID_entidade INT NOT NULL,
+	ID_projeto INT NOT NULL,
+	FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto),
+	FOREIGN KEY (ID_entidade) REFERENCES Entidade(ID_entidade)
 );
 
 CREATE TABLE DominioProjeto

@@ -13,11 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,59 +39,53 @@ public class HomeController {
     @FXML
     private TableColumn<Projetos, String> colunaPalavraChave;
     @FXML
-    private TableColumn<Projetos, LocalDate> colunaDataInicio;
+    private TableColumn<Projetos, String> colunaDataInicio;
     @FXML
     private TableColumn<Projetos, String> colunaEstado;
 
-    private ObservableList<Projetos> projetos = FXCollections.observableArrayList();
+    private final ObservableList<Projetos> projetos = FXCollections.observableArrayList();
 
+    @FXML
     private void initialize() {
         carregarDados();
 
-        tableView.setRowFactory(tv -> {
-            TableRow<Projetos> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2 && (!row.isEmpty())) {
-                    Projetos projeto = row.getItem();
-                    mostrarDetalhesProjeto(projeto.getIdProjeto());
-                }
-            });
-            return row;
-        });
     }
 
     private void carregarDados() {
-        projetos = FXCollections.observableArrayList();
-        try (Connection connection = Database.getConnection()) {
+        try {
+            Connection connection = Database.getConnection();
+
             String query = "SELECT p.ID_projeto, p.nomeCurto, p.titulo, p.palavraChave, p.dataInicio, e.estado " +
                     "FROM Projetos p " +
                     "JOIN EstadoProjeto ep ON p.ID_projeto = ep.ID_projeto " +
-                    "JOIN TipoEstado e ON ep.ID_tipoEstado = e.ID_tipoEstado";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+                    "JOIN TipoEstado e ON  ep.ID_tipoEstado = e.ID_tipoEstado";
 
-            while (resultSet.next()) {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
                 projetos.add(new Projetos(
-                        resultSet.getInt("ID"),
-                        resultSet.getString("nomeCurto"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("palavraChave"),
-                        resultSet.getDate("dataInicio").toLocalDate(),
-                        resultSet.getString("estado")
+                        rs.getInt("ID_projeto"),
+                        rs.getString("nomeCurto"),
+                        rs.getString("titulo"),
+                        rs.getString("palavraChave"),
+                        rs.getString("dataInicio"),
+                        rs.getString("estado")
                 ));
             }
-        } catch (SQLException e) {
-            showAlert("Erro ao carregar dados", e.getMessage());
+        } catch (SQLException var3) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, (String)null, var3);
         }
+        this.tableView.setItems(projetos);
 
-        colunaIdProjeto.setCellValueFactory(cellData -> cellData.getValue().idProjetoProperty().asObject());
-        colunaNomeCurto.setCellValueFactory(cellData -> cellData.getValue().nomeCurtoProperty());
-        colunaTitulo.setCellValueFactory(cellData -> cellData.getValue().tituloProperty());
-        colunaPalavraChave.setCellValueFactory(cellData -> cellData.getValue().palavraChaveProperty());
-        colunaDataInicio.setCellValueFactory(cellData -> cellData.getValue().dataInicioProperty());
-        colunaEstado.setCellValueFactory(cellData -> cellData.getValue().estadoProperty());
+        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("ID_Projeto"));
+        this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
+        this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+        this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
+        this.colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        this.colunaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        tableView.setItems(projetos);
+
     }
 
 
