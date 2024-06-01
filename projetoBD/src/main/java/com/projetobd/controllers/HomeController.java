@@ -26,6 +26,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HomeController {
 
@@ -74,11 +76,11 @@ public class HomeController {
             while (resultSet.next()) {
                 projetos.add(new Projetos(
                         resultSet.getInt("ID"),
-                        resultSet.getString("Nome"),
-                        resultSet.getString("Título"),
-                        resultSet.getString("Keywords"),
-                        resultSet.getDate("Data Início").toLocalDate(),
-                        resultSet.getString("Estado")
+                        resultSet.getString("nomeCurto"),
+                        resultSet.getString("titulo"),
+                        resultSet.getString("palavraChave"),
+                        resultSet.getDate("dataInicio").toLocalDate(),
+                        resultSet.getString("estado")
                 ));
             }
         } catch (SQLException e) {
@@ -94,6 +96,7 @@ public class HomeController {
 
         tableView.setItems(projetos);
     }
+
 
     private void mostrarDetalhesProjeto(int idProjeto) {
         try {

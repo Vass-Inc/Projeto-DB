@@ -10,10 +10,10 @@
       <columns>
          <TableColumn fx:id="colunaIdProjeto" prefWidth="43.0" text="ID" />
          <TableColumn fx:id="colunaNomeCurto" prefWidth="89.0" text="Nome" />
-         <TableColumn fx:id="colunaTitulo" maxWidth="1.7976931348623157E308" prefWidth="-1.0" text="Título" />
-         <TableColumn fx:id="colunaPalavraChave" prefWidth="83.0" text="Keywords" />
-         <TableColumn fx:id="colunaDataInicio" prefWidth="86.0" text="Data Início" />
-         <TableColumn fx:id="colunaEstado" prefWidth="113.0" text="Estado" />
+         <TableColumn fx:id="colunaTitulo" maxWidth="125.0" prefWidth="125.0" text="Titulo" />
+         <TableColumn fx:id="colunaPalavraChave" minWidth="0.0" prefWidth="90.0" text="Keywords" />
+         <TableColumn fx:id="colunaDataInicio" prefWidth="131.0" text="DataInicio" />
+         <TableColumn fx:id="colunaEstado" prefWidth="87.0" text="Estado" />
       </columns>
     </TableView>
     <Button layoutX="14.0" layoutY="452.0" onAction="#handleAdd" prefHeight="25.0" prefWidth="79.0" text="Adicionar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" />
