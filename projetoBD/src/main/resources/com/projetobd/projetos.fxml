@@ -13,9 +13,9 @@
          <TableColumn fx:id="colunaTitulo" maxWidth="125.0" prefWidth="125.0" text="Titulo" />
          <TableColumn fx:id="colunaPalavraChave" minWidth="0.0" prefWidth="90.0" text="Keywords" />
          <TableColumn fx:id="colunaDataInicio" prefWidth="131.0" text="DataInicio" />
-         <TableColumn fx:id="colunaEstado" prefWidth="87.0" text="Estado" />
+         <TableColumn fx:id="colunaDataFim" prefWidth="87.0" text="DataFim" />
       </columns>
     </TableView>
-    <Button layoutX="14.0" layoutY="452.0" onAction="#handleAdd" prefHeight="25.0" prefWidth="79.0" text="Adicionar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" />
-    <Button layoutX="106.0" layoutY="452.0" onAction="#handleDelete" text="Eliminar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="106.0" />
+    <Button layoutX="12.0" layoutY="59.0" onAction="#handleAdd" prefHeight="25.0" prefWidth="155.0" text="Adicionar" AnchorPane.bottomAnchor="404.0" AnchorPane.leftAnchor="12.0" />
+   <Button layoutX="12.0" layoutY="435.0" onAction="#voltar" prefHeight="25.0" prefWidth="155.0" text="Voltar" />
 </AnchorPane>

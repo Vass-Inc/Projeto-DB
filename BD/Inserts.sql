@@ -4,19 +4,19 @@ USE PROJETO;
 INSERT INTO TipoEstado (estado) VALUES 
 ('Iniciado'),
 ('Em Progresso'),
-('Concluído');
+('Concluï¿½do');
 
 -- Insert statements for TipoDominio
 INSERT INTO TipoDominio (dominioCientifico) VALUES 
-('Ciências Naturais'),
+('Ciï¿½ncias Naturais'),
 ('Engenharia e Tecnologia'),
-('Ciências Médicas e da Saúde');
+('Ciï¿½ncias Mï¿½dicas e da Saï¿½de');
 
 -- Insert statements for TipoArea
 INSERT INTO TipoArea (areaCientifica) VALUES 
 ('Biologia'),
-('Física'),
-('Química');
+('Fï¿½sica'),
+('Quï¿½mica');
 
 -- Insert statements for Membros_DIUBI
 INSERT INTO Membros_DIUBI (numeroFuncionario, orcid, funcao) VALUES 
@@ -31,27 +31,27 @@ INSERT INTO TipoFinanciamento (Tipo) VALUES
 
 -- Insert statements for NomeDepartamento
 INSERT INTO NomeDepartamento (nomeDepartamento) VALUES 
-('Departamento de Física'),
-('Departamento de Química'),
+('Departamento de Fï¿½sica'),
+('Departamento de Quï¿½mica'),
 ('Departamento de Biologia');
 
 -- Insert statements for Programa
 INSERT INTO Programa (nomePrograma) VALUES 
-('Programa de Investigação Científica'),
-('Programa de Desenvolvimento Tecnológico'),
-('Programa de Saúde Pública');
+('Programa de Investigaï¿½ï¿½o Cientï¿½fica'),
+('Programa de Desenvolvimento Tecnolï¿½gico'),
+('Programa de Saï¿½de Pï¿½blica');
 
 -- Insert statements for Publicacao
 INSERT INTO Publicacao (tipo, valor) VALUES 
-('Artigo Científico', 'Nature'),
+('Artigo Cientï¿½fico', 'Nature'),
 ('Livro', 'Springer'),
-('Conferência', 'IEEE');
+('Conferï¿½ncia', 'IEEE');
 
 -- Insert statements for Keywords
 INSERT INTO Keywords (keyword) VALUES 
 ('Biotecnologia'),
 ('Nanotecnologia'),
-('Inteligência Artificial');
+('Inteligï¿½ncia Artificial');
 
 -- Insert statements for Pais
 INSERT INTO Pais (nomePais) VALUES 
@@ -61,21 +61,21 @@ INSERT INTO Pais (nomePais) VALUES
 
 -- Insert statements for NomeDepartamento
 INSERT INTO NomeDepartamento (nomeDepartamento) VALUES 
-('Departamento de Ciências da Computação'),
-('Departamento de Matemática'),
+('Departamento de Ciï¿½ncias da Computaï¿½ï¿½o'),
+('Departamento de Matemï¿½tica'),
 ('Departamento de Engenharia Civil');
 
 -- Insert statements for Projetos
 INSERT INTO Projetos (nomeCurto, titulo, descricao, palavraChave, dataInicio, dataFim, ID_entidade) VALUES 
-('ProjBio', 'Projeto de Biotecnologia', 'Desenvolvimento de novas técnicas biotecnológicas', 'Biotecnologia', '2023-01-01', '2024-01-01', 1),
+('ProjBio', 'Projeto de Biotecnologia', 'Desenvolvimento de novas tï¿½cnicas biotecnolï¿½gicas', 'Biotecnologia', '2023-01-01', '2024-01-01', 1),
 ('ProjNano', 'Projeto de Nanotecnologia', 'Pesquisa em nanomateriais', 'Nanotecnologia', '2023-02-01', '2024-02-01', 2),
-('ProjIA', 'Projeto de Inteligência Artificial', 'Desenvolvimento de sistemas de IA', 'Inteligência Artificial', '2023-03-01', '2024-03-01', 3);
+('ProjIA', 'Projeto de Inteligï¿½ncia Artificial', 'Desenvolvimento de sistemas de IA', 'Inteligï¿½ncia Artificial', '2023-03-01', '2024-03-01', 3);
 
 -- Insert statements for Entidade
 INSERT INTO Entidade (nome, email, telefone, designacao, morada, ID_projeto, ID_pais) VALUES 
-('Universidade de Lisboa', 'contact@ulisboa.pt', '351123456789', 'Instituição de Ensino Superior', 'Avenida da Universidade, Lisboa', 1, 1),
-('Universidade do Porto', 'info@up.pt', '351987654321', 'Instituição de Ensino Superior', 'Rua da Universidade, Porto', 2, 2),
-('Universidade de Coimbra', 'mail@uc.pt', '351456789123', 'Instituição de Ensino Superior', 'Praça da Universidade, Coimbra', 3, 3);
+('Universidade de Lisboa', 'contact@ulisboa.pt', '351123456789', 'Instituiï¿½ï¿½o de Ensino Superior', 'Avenida da Universidade, Lisboa', 1, 1),
+('Universidade do Porto', 'info@up.pt', '351987654321', 'Instituiï¿½ï¿½o de Ensino Superior', 'Rua da Universidade, Porto', 2, 2),
+('Universidade de Coimbra', 'mail@uc.pt', '351456789123', 'Instituiï¿½ï¿½o de Ensino Superior', 'Praï¿½a da Universidade, Coimbra', 3, 3);
 
 -- Insert statements for Departamento
 INSERT INTO Departamento (ID_departamento, ID_membro) VALUES 
@@ -108,7 +108,7 @@ INSERT INTO AreaProjeto (ID_projeto, ID_areaCientifica) VALUES
 (3, 3);
 
 -- Insert statements for PublicacaoProjeto
-INSERT INTO PublicacaoProjeto (ID_projeto, ID_identificadores) VALUES 
+INSERT INTO PublicacaoProjeto (ID_projeto, ID_publicacao) VALUES
 (1, 1),
 (2, 2),
 (3, 3);

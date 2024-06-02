@@ -10,4 +10,5 @@ module com.projetobd {
     exports com.projetobd;
     exports com.projetobd.controllers;
     opens com.projetobd.controllers to javafx.fxml;
+    opens com.projetobd.models to javafx.base;
 }

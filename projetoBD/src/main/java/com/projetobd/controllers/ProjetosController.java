@@ -18,10 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,10 +45,19 @@ public class ProjetosController {
     private void initialize() {
         configurarColunas();
         carregarDados();
+
+        tableView.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Projetos projetoSelecionado = tableView.getSelectionModel().getSelectedItem();
+                if (projetoSelecionado != null) {
+                    mostrarDetalhesProjeto(projetoSelecionado.getIdProjeto());
+                }
+            }
+        });
     }
 
     private void configurarColunas() {
-        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("ID_projeto"));
+        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("idProjeto"));
         this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
         this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
@@ -91,14 +97,15 @@ public class ProjetosController {
 
     private void mostrarDetalhesProjeto(int idProjeto) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/projetobd/views/detalhesProjeto.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("detalhesProjeto.fxml"));
             Parent root = loader.load();
 
             DetalhesProjetoController controller = loader.getController();
             controller.setIdProjeto(idProjeto);
 
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) tableView.getScene().getWindow(); // Get the current stage
+            stage.setScene(scene);
             stage.setTitle("Detalhes do Projeto");
             stage.show();
         } catch (IOException e) {
@@ -122,7 +129,7 @@ public class ProjetosController {
         stage.show();
     }
 
-    public void handleDelete(ActionEvent actionEvent) {
-        // Implement delete functionality
+
+    public void voltar(ActionEvent actionEvent) {
     }
 }
