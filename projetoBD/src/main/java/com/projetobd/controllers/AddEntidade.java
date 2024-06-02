@@ -54,7 +54,13 @@ public class AddEntidade {
         String morada = txtMorada.getText();
         String pais = menuPais.getText();
 
-        String sql = "INSERT INTO Entidade (nome, email, telefone, designacao, morada, pais) VALUES (?, ?, ?, ?, ?, ?)";
+        int idPais = getIdPais(pais);
+        if (idPais == -1) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "País selecionado não encontrado.");
+            return;
+        }
+
+        String sql = "INSERT INTO Entidade (nome, email, telefone, designacao, morada, id_pais) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -64,7 +70,7 @@ public class AddEntidade {
             pstmt.setString(3, telefone);
             pstmt.setString(4, designacao);
             pstmt.setString(5, morada);
-            pstmt.setString(6, pais);
+            pstmt.setInt(6, idPais);
 
             pstmt.executeUpdate();
             showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Entidade adicionada com sucesso!");
@@ -79,6 +85,19 @@ public class AddEntidade {
 
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao adicionar a entidade: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    void voltar(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao carregar a tela principal: " + e.getMessage());
         }
     }
 
@@ -101,17 +120,20 @@ public class AddEntidade {
         }
     }
 
-    @FXML
-    void voltar(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao carregar a tela principal: " + e.getMessage());
+    private int getIdPais(String nomePais) {
+        String sql = "SELECT id_pais FROM Pais WHERE nome = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, nomePais);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("id_pais");
+                }
+            }
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao buscar id do país: " + e.getMessage());
         }
+        return -1;
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {

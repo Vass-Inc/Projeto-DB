@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addEntidade.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/entidades.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
