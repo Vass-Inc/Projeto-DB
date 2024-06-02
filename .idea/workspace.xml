@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addEntidade.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/entidades.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD/Inserts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/Inserts.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD/Procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BD/Procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/ProjetosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/ProjetosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/projetos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/projetos.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Vass",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/dev/sqljdbc_12.6",
