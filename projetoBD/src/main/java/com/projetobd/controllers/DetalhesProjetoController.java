@@ -128,5 +128,6 @@ public class DetalhesProjetoController {
     }
 
     public void guardar(ActionEvent actionEvent) {
+
     }
 }

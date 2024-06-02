@@ -3,7 +3,6 @@ package com.projetobd.controllers;
 import com.projetobd.Database;
 import com.projetobd.Main;
 import com.projetobd.models.Entidade;
-import com.projetobd.models.Projetos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,10 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,13 +55,13 @@ public class EntidadeController {
         this.colunaTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         this.colunaDesinacao.setCellValueFactory(new PropertyValueFactory<>("designacao"));
         this.colunaMorada.setCellValueFactory(new PropertyValueFactory<>("morada"));
-        this.colunaPais.setCellValueFactory(new PropertyValueFactory<>("idPais"));
+        this.colunaPais.setCellValueFactory(new PropertyValueFactory<>("nomePais"));
     }
 
     private void carregarDados() {
         try {
             Connection connection = Database.getConnection();
-            String query = "SELECT e.nome, e.email, e.telefone, e.designacao, e.morada, p.nomePais FROM Entidade e, nomePais p WHERE e.ID_Pais = p.ID_Pais";
+            String query = "SELECT e.ID_entidade, e.nome, e.email, e.telefone, e.designacao, e.morada, p.nomePais FROM Entidade e, Pais p WHERE e.ID_pais = p.ID_pais";
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -75,7 +71,7 @@ public class EntidadeController {
                         rs.getString("nome"),
                         rs.getString("email"),
                         rs.getString("telefone"),
-                        rs.getString("designacao"), // Ensure to convert SQL date to LocalDate
+                        rs.getString("designacao"),
                         rs.getString("morada"),
                         rs.getString("nomePais")
                 ));
@@ -101,7 +97,8 @@ public class EntidadeController {
         alert.showAndWait();
     }
 
-    public void handleAdd(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void handleAdd(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addEntidade.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -109,6 +106,8 @@ public class EntidadeController {
         stage.show();
     }
 
+    @FXML
     public void voltar(ActionEvent actionEvent) {
+        // Implementar lógica de voltar, se necessário
     }
 }

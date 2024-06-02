@@ -91,7 +91,7 @@ public class AddEntidade {
     @FXML
     void voltar(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -102,14 +102,14 @@ public class AddEntidade {
     }
 
     private void carregarPaises() {
-        String sql = "SELECT nome FROM Pais"; // Assume uma tabela 'Pais' com uma coluna 'nome'
+        String sql = "SELECT nomePais FROM Pais"; // Assume uma tabela 'Pais' com uma coluna 'nome'
 
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                String paisNome = rs.getString("nome");
+                String paisNome = rs.getString("nomePais");
                 MenuItem menuItem = new MenuItem(paisNome);
                 menuItem.setOnAction(event -> menuPais.setText(paisNome));
                 menuPais.getItems().add(menuItem);
@@ -121,13 +121,13 @@ public class AddEntidade {
     }
 
     private int getIdPais(String nomePais) {
-        String sql = "SELECT id_pais FROM Pais WHERE nome = ?";
+        String sql = "SELECT ID_pais FROM Pais WHERE nomePais = ?";
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nomePais);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt("id_pais");
+                    return rs.getInt("ID_pais");
                 }
             }
         } catch (SQLException e) {
