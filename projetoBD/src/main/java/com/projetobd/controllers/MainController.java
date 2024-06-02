@@ -14,7 +14,7 @@ import java.io.IOException;
 public class MainController {
     @FXML
     public void btnEntrar(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("projetos.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -71,7 +71,7 @@ public class DetalhesProjetoController {
     }
 
     public void paraTras(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("projetos.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);

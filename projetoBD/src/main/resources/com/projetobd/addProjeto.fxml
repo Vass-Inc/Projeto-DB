@@ -17,10 +17,6 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
                 <Button layoutX="3.0" layoutY="139.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="92.0" text="Adicionar" />
-                <Button layoutX="4.0" layoutY="218.0" mnemonicParsing="false" onAction="#paraTras" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: red;" text="Membros" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font></Button>
                 <Button layoutX="22.0" layoutY="447.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: blue;" text="Voltar" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="12.0" />
@@ -70,7 +66,7 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextArea>
-                <TextField fx:id="txtNomeEnt" editable="false" layoutX="498.0" layoutY="69.0" prefHeight="25.0" prefWidth="202.0" promptText="Nome">
+                <TextField fx:id="txtNomeEntidade" editable="false" layoutX="498.0" layoutY="69.0" prefHeight="25.0" prefWidth="202.0" promptText="Nome">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font></TextField>
@@ -79,7 +75,7 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtEmail" editable="false" layoutX="498.0" layoutY="102.0" prefHeight="25.0" prefWidth="202.0" promptText="E-mail">
+                <TextField fx:id="txtEmailEntidade" editable="false" layoutX="498.0" layoutY="102.0" prefHeight="25.0" prefWidth="202.0" promptText="E-mail">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font></TextField>
@@ -98,17 +94,17 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtTelefone" editable="false" layoutX="498.0" layoutY="135.0" prefHeight="25.0" prefWidth="202.0" promptText="Telefone">
+                <TextField fx:id="txtTelefoneEntidade" editable="false" layoutX="498.0" layoutY="135.0" prefHeight="25.0" prefWidth="202.0" promptText="Telefone">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtDesignacao" editable="false" layoutX="498.0" layoutY="167.0" prefHeight="25.0" prefWidth="202.0" promptText="Designacao">
+                <TextField fx:id="txtDesignacaoEntidade" editable="false" layoutX="498.0" layoutY="167.0" prefHeight="25.0" prefWidth="202.0" promptText="Designacao">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtMorada" editable="false" layoutX="498.0" layoutY="200.0" prefHeight="25.0" prefWidth="202.0" promptText="Morada">
+                <TextField fx:id="txtMoradaEntidade" editable="false" layoutX="498.0" layoutY="200.0" prefHeight="25.0" prefWidth="202.0" promptText="Morada">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
@@ -138,12 +134,17 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-            <MenuButton layoutX="498.0" layoutY="30.0" mnemonicParsing="false" onAction="#chooseEntidade" prefHeight="25.0" prefWidth="202.0" text="Entidade">
+            <MenuButton fx:id="menuButtonEntidade" layoutX="498.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Entidade">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
+            <TextField fx:id="txtPaisEntidade" editable="false" layoutX="498.0" layoutY="231.0" prefHeight="25.0" prefWidth="202.0" promptText="Pais">
+               <font>
+                  <Font name="JetBrains Mono Regular" size="12.0" />
+               </font>
+            </TextField>
             </children>
         </AnchorPane>
     </items>
