@@ -3,7 +3,6 @@ package com.projetobd.controllers;
 import com.projetobd.Database;
 import com.projetobd.Main;
 import com.projetobd.models.Entidade;
-import com.projetobd.models.Pais;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,13 +13,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class AddProjeto {
 
@@ -39,13 +33,50 @@ public class AddProjeto {
         loadEntidades();
     }
 
-    public void chooseEntidade(ActionEvent actionEvent) {
-    }
+    @FXML
+    private void adicionar() {
+        try {
+            Connection conn = Database.getConnection();
+            conn.setAutoCommit(false); // Start transaction
 
-    public void adicionar(ActionEvent actionEvent) {
-    }
+            // Insert into Projetos table
+            String sqlProjetos = "INSERT INTO Projetos (nomeCurto, titulo, descricao, palavraChave, dataInicio, dataFim, ID_entidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmtProjetos = conn.prepareStatement(sqlProjetos, Statement.RETURN_GENERATED_KEYS);
 
-    public void paraTras(ActionEvent actionEvent) {
+            pstmtProjetos.setString(1, txtNomeCurto.getText());
+            pstmtProjetos.setString(2, txtTitulo.getText());
+            pstmtProjetos.setString(3, txtDescricao.getText());
+            pstmtProjetos.setString(4, txtPalavrasChave.getText());
+            pstmtProjetos.setDate(5, java.sql.Date.valueOf(txtDataInicio.getText())); // Ensure date format is correct
+            pstmtProjetos.setDate(6, java.sql.Date.valueOf(txtDataFim.getText())); // Ensure date format is correct
+            pstmtProjetos.setInt(7, getSelectedEntidadeId());
+
+            pstmtProjetos.executeUpdate();
+
+            // Retrieve generated ID for the new project
+            ResultSet generatedKeys = pstmtProjetos.getGeneratedKeys();
+            int projetoId = -1;
+            if (generatedKeys.next()) {
+                projetoId = generatedKeys.getInt(1);
+            }
+            generatedKeys.close();
+            pstmtProjetos.close();
+
+            // Insert into other related tables
+            insertIntoDominiosCientificos(conn, projetoId);
+            insertIntoAreasCientificas(conn, projetoId);
+            insertIntoPublicacoes(conn, projetoId);
+            insertIntoDepartamentos(conn, projetoId);
+
+            conn.commit(); // Commit transaction
+            conn.setAutoCommit(true);
+
+            // Optionally, clear the fields after insertion
+            clearFields();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void voltar(ActionEvent actionEvent) throws IOException {
@@ -96,5 +127,72 @@ public class AddProjeto {
         txtDesignacaoEntidade.setText(entidade.getDesignacao());
         txtMoradaEntidade.setText(entidade.getMorada());
         txtPaisEntidade.setText(entidade.getNomePais());
+    }
+
+    private int getSelectedEntidadeId() {
+        for (MenuItem menuItem : menuButtonEntidade.getItems()) {
+            if (menuItem.getText().equals(txtNomeEntidade.getText())) {
+                Entidade entidade = (Entidade) menuItem.getUserData();
+                return entidade.getId();
+            }
+        }
+        return -1; // Or handle the case where no matching entity is found
+    }
+
+    private void clearFields() {
+        txtNomeCurto.clear();
+        txtTitulo.clear();
+        txtDescricao.clear();
+        txtPalavrasChave.clear();
+        txtDataInicio.clear();
+        txtDataFim.clear();
+        txtNomeEntidade.clear();
+        txtEmailEntidade.clear();
+        txtTelefoneEntidade.clear();
+        txtDesignacaoEntidade.clear();
+        txtMoradaEntidade.clear();
+        txtPaisEntidade.clear();
+        txtDominioCientifico.clear();
+        txtAreaCientifica.clear();
+        txtPub.clear();
+        txtTipoPub.clear();
+        txtDepartamento.clear();
+    }
+
+    private void insertIntoDominiosCientificos(Connection conn, int projetoId) throws Exception {
+        String sql = "INSERT INTO DominiosCientificos (projetoId, dominioCientifico) VALUES (?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, projetoId);
+        pstmt.setString(2, txtDominioCientifico.getText());
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+
+    private void insertIntoAreasCientificas(Connection conn, int projetoId) throws Exception {
+        String sql = "INSERT INTO AreasCientificas (projetoId, areaCientifica) VALUES (?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, projetoId);
+        pstmt.setString(2, txtAreaCientifica.getText());
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+
+    private void insertIntoPublicacoes(Connection conn, int projetoId) throws Exception {
+        String sql = "INSERT INTO Publicacoes (projetoId, tipoPublicacao, url) VALUES (?, ?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, projetoId);
+        pstmt.setString(2, txtPub.getText());
+        pstmt.setString(3, txtTipoPub.getText());
+        pstmt.executeUpdate();
+        pstmt.close();
+    }
+
+    private void insertIntoDepartamentos(Connection conn, int projetoId) throws Exception {
+        String sql = "INSERT INTO Departamentos (projetoId, departamento) VALUES (?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, projetoId);
+        pstmt.setString(2, txtDepartamento.getText());
+        pstmt.executeUpdate();
+        pstmt.close();
     }
 }

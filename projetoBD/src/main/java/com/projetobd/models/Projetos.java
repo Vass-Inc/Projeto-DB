@@ -1,16 +1,16 @@
 package com.projetobd.models;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Projetos {
     private int idProjeto;
     private String nomeCurto;
     private String titulo;
     private String palavraChave;
-    private Date dataInicio;
-    private Date dataFim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
 
-    public Projetos(int idProjeto, String nomeCurto, String titulo, String palavraChave, Date dataInicio, Date dataFim) {
+    public Projetos(int idProjeto, String nomeCurto, String titulo, String palavraChave, LocalDate dataInicio, LocalDate dataFim) {
         this.idProjeto = idProjeto;
         this.nomeCurto = nomeCurto;
         this.titulo = titulo;
@@ -51,19 +51,19 @@ public class Projetos {
         this.palavraChave = palavraChave;
     }
 
-    public Date getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public LocalDate getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
 }

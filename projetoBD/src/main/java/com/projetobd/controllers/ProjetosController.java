@@ -40,22 +40,29 @@ public class ProjetosController {
     @FXML
     private TableColumn<Projetos, String> colunaDataInicio;
     @FXML
-    private TableColumn<Projetos, String> colunaEstado;
+    private TableColumn<Projetos, String> colunaDataFim; // Changed from colunaEstado to colunaDataFim
 
     private final ObservableList<Projetos> projetos = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
+        configurarColunas();
         carregarDados();
+    }
 
+    private void configurarColunas() {
+        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("ID_projeto"));
+        this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
+        this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+        this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
+        this.colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        this.colunaDataFim.setCellValueFactory(new PropertyValueFactory<>("dataFim")); // Ensure column matches property
     }
 
     private void carregarDados() {
         try {
             Connection connection = Database.getConnection();
-
-            String query = "SELECT p.ID_projeto, p.nomeCurto, p.titulo, p.palavraChave, p.dataInicio, e.estado FROM Projetos p ";
-
+            String query = "SELECT p.ID_projeto, p.nomeCurto, p.titulo, p.palavraChave, p.dataInicio, p.dataFim FROM Projetos p";
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -65,25 +72,22 @@ public class ProjetosController {
                         rs.getString("nomeCurto"),
                         rs.getString("titulo"),
                         rs.getString("palavraChave"),
-                        rs.getDate("dataInicio"),
-                        rs.getDate("dataFim")
+                        rs.getDate("dataInicio").toLocalDate(), // Ensure to convert SQL date to LocalDate
+                        rs.getDate("dataFim").toLocalDate() // Ensure to convert SQL date to LocalDate
                 ));
             }
-        } catch (SQLException var3) {
-            Logger.getLogger(ProjetosController.class.getName()).log(Level.SEVERE, (String)null, var3);
+
+            rs.close();
+            statement.close();
+            connection.close();
+
+            tableView.setItems(projetos);
+
+        } catch (SQLException e) {
+            Logger.getLogger(ProjetosController.class.getName()).log(Level.SEVERE, null, e);
+            showAlert("Erro ao carregar dados", e.getMessage());
         }
-        this.tableView.setItems(projetos);
-
-        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("ID_Projeto"));
-        this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
-        this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
-        this.colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
-        this.colunaEstado.setCellValueFactory(new PropertyValueFactory<>("dataFim"));
-
-
     }
-
 
     private void mostrarDetalhesProjeto(int idProjeto) {
         try {
@@ -119,6 +123,6 @@ public class ProjetosController {
     }
 
     public void handleDelete(ActionEvent actionEvent) {
-
+        // Implement delete functionality
     }
 }
