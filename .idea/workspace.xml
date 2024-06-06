@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52f1fb6-4cce-4cdc-afd2-37407ecc83ae" name="Changes" comment="22 maio laptop">
-      <change afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/models/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c40bf8ac-f3ed-4751-8162-5d8b4628d41d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c40bf8ac-f3ed-4751-8162-5d8b4628d41d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddEntidade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddProjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/AddProjeto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/DetalhesProjetoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/EntidadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/ProjetosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/java/com/projetobd/controllers/ProjetosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addEntidade.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addEntidade.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addProjeto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/addProjeto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projetoBD/src/main/resources/com/projetobd/detalhesProjeto.fxml" afterDir="false" />
     </list>
@@ -171,6 +163,7 @@
       <workItem from="1717517413845" duration="208000" />
       <workItem from="1717663208839" duration="11941000" />
       <workItem from="1717679682054" duration="235000" />
+      <workItem from="1717679993827" duration="2219000" />
     </task>
     <servers />
   </component>

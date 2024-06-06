@@ -138,7 +138,7 @@
                </font>
             </TextField>
             <MenuButton fx:id="menuButtonEntidade" layoutX="498.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Entidades" />
-            <TextField fx:id="txtPaisEnt" editable="false" layoutX="498.0" layoutY="223.0" prefHeight="25.0" prefWidth="202.0" promptText="Morada">
+            <TextField fx:id="txtPaisEnt" editable="false" layoutX="498.0" layoutY="223.0" prefHeight="25.0" prefWidth="202.0" promptText="País">
                <font>
                   <Font name="JetBrains Mono Regular" size="12.0" />
                </font>

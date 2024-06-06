@@ -46,17 +46,17 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtPalavrasChave" layoutX="12.0" layoutY="147.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavra-Chave">
+                <TextField fx:id="txtPalavrasChave" layoutX="12.0" layoutY="273.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavra-Chave">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtDominioCientifico" layoutX="172.0" layoutY="147.0" prefHeight="25.0" prefWidth="160.0" promptText="Domínios Científicos">
+                <TextField fx:id="txtDominioCientifico" layoutX="173.0" layoutY="273.0" prefHeight="25.0" prefWidth="160.0" promptText="Domínios Científicos">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtAreaCientifica" layoutX="342.0" layoutY="147.0" prefHeight="25.0" prefWidth="150.0" promptText="Área Científica">
+                <TextField fx:id="txtAreaCientifica" layoutX="342.0" layoutY="209.0" prefHeight="25.0" prefWidth="150.0" promptText="Área Científica">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
@@ -109,27 +109,27 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtTipoPub" layoutX="12.0" layoutY="210.0" prefHeight="25.0" prefWidth="150.0" promptText="URL ou DOI">
+                <TextField fx:id="txtTipoPub" layoutX="12.0" layoutY="241.0" prefHeight="25.0" prefWidth="92.0" promptText="URL ou DOI">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtPub" layoutX="172.0" layoutY="210.0" prefHeight="25.0" prefWidth="320.0" promptText="Tipo de Publicacao">
+                <TextField fx:id="txtPub" layoutX="112.0" layoutY="241.0" prefHeight="25.0" prefWidth="378.0" promptText="Tipo de Publicacao">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtDepartamento" layoutX="12.0" layoutY="243.0" prefHeight="25.0" prefWidth="479.0" promptText="Nome do Departamento">
+                <TextField fx:id="txtDepartamento" layoutX="13.0" layoutY="148.0" prefHeight="25.0" prefWidth="479.0" promptText="Nome do Departamento">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtDataInicio" layoutX="12.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="Data Inicio">
+                <TextField fx:id="txtDataInicio" layoutX="12.0" layoutY="209.0" prefHeight="25.0" prefWidth="150.0" promptText="Data Inicio">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtDataFim" layoutX="172.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavras-Chave">
+                <TextField fx:id="txtDataFim" layoutX="172.0" layoutY="209.0" prefHeight="25.0" prefWidth="160.0" promptText="Data Fim">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
