@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,28 +20,26 @@ import java.sql.SQLException;
 public class AddEntidade {
 
     @FXML
-    private TextField txtNome;
-
+    private TextField txtNome, txtEmail, txtDesignacao, txtTelefone, txtMorada;
     @FXML
-    private TextField txtEmail;
-
+    private TextField txtNomePais;
     @FXML
-    private TextField txtDesignacao;
-
-    @FXML
-    private TextField txtTelefone;
-
-    @FXML
-    private TextField txtMorada;
-
+    private Button btnGuardar, btnAdd;
     @FXML
     private MenuButton menuPais;
+
+    private Scene cenaAnterior;
+
+    public void setCenaAnterior(Scene cenaAnterior) {
+        this.cenaAnterior = cenaAnterior;
+    }
 
     @FXML
     public void initialize() {
         carregarPaises();
     }
 
+    // Adicionar das Entidades
     @FXML
     void adicionar(ActionEvent event) {
         String nome = txtNome.getText();
@@ -53,14 +48,19 @@ public class AddEntidade {
         String telefone = txtTelefone.getText();
         String morada = txtMorada.getText();
         String pais = menuPais.getText();
-
         int idPais = getIdPais(pais);
+
         if (idPais == -1) {
             showAlert(Alert.AlertType.ERROR, "Erro", "País selecionado não encontrado.");
             return;
         }
+        if (entidadeExiste(nome)) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Entidade já existe.");
+            return;
+        }
 
-        String sql = "INSERT INTO Entidade (nome, email, telefone, designacao, morada, id_pais) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Entidade (nome, email, telefone, designacao, morada, id_pais) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -75,7 +75,6 @@ public class AddEntidade {
             pstmt.executeUpdate();
             showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Entidade adicionada com sucesso!");
 
-            // Limpar campos após inserção
             txtNome.clear();
             txtEmail.clear();
             txtDesignacao.clear();
@@ -89,25 +88,25 @@ public class AddEntidade {
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
-            Parent root = fxmlLoader.load();
+    void voltar(ActionEvent event) throws IOException {
+        if (cenaAnterior != null) {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(cenaAnterior);
             stage.show();
-        } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao carregar a tela principal: " + e.getMessage());
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Cena anterior não encontrada.");
         }
     }
 
+    // Select para popular o menu
     private void carregarPaises() {
-        String sql = "SELECT nomePais FROM Pais"; // Assume uma tabela 'Pais' com uma coluna 'nome'
+        String sql = "SELECT nomePais FROM Pais";
 
         try (Connection conn = Database.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
+            menuPais.getItems().clear();
             while (rs.next()) {
                 String paisNome = rs.getString("nomePais");
                 MenuItem menuItem = new MenuItem(paisNome);
@@ -120,10 +119,10 @@ public class AddEntidade {
         }
     }
 
+    // Vai buscar o ID do pais para quando for para inserir na tabela Entidades
     private int getIdPais(String nomePais) {
         String sql = "SELECT ID_pais FROM Pais WHERE nomePais = ?";
-        try (Connection conn = Database.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = Database.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nomePais);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -142,5 +141,83 @@ public class AddEntidade {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void addPais(ActionEvent actionEvent) {
+        this.btnAdd.setVisible(false);
+        this.btnGuardar.setVisible(true);
+        this.btnAdd.setDisable(true);
+        this.btnGuardar.setDisable(false);
+        this.txtNomePais.setVisible(true);
+        this.txtNomePais.setDisable(false);
+    }
+
+    public void guardaPais(ActionEvent actionEvent) {
+        String nomePais = txtNomePais.getText();
+
+        if (paisExiste(nomePais)) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "País com esse nome já existe.");
+            return;
+        }
+
+        String sql = "INSERT INTO Pais (nomePais) " +
+                "VALUES (?)";
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nomePais);
+
+            pstmt.executeUpdate();
+            showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Pais adicionado com sucesso!");
+
+
+            txtNomePais.clear();
+            carregarPaises();
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao adicionar o País: " + e.getMessage());
+        }
+
+        // ---
+        this.btnAdd.setVisible(true);
+        this.btnGuardar.setVisible(false);
+        this.btnAdd.setDisable(false);
+        this.btnGuardar.setDisable(true);
+        this.txtNomePais.setVisible(false);
+        this.txtNomePais.setDisable(true);
+    }
+
+
+    // Verifica se existem
+    private boolean entidadeExiste(String nomeEntidade) {
+        String sql = "SELECT COUNT(*) FROM Entidade WHERE nome = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, nomeEntidade);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao verificar existência da entidade: " + e.getMessage());
+        }
+        return false;
+    }
+
+    private boolean paisExiste(String nomePais) {
+        String sql = "SELECT COUNT(*) FROM Pais WHERE nomePais = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, nomePais);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro", "Erro ao verificar existência do país: " + e.getMessage());
+        }
+        return false;
     }
 }

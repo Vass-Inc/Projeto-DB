@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -37,23 +38,22 @@ public class AddProjeto {
     private void adicionar() {
         try {
             Connection conn = Database.getConnection();
-            conn.setAutoCommit(false); // Start transaction
+            conn.setAutoCommit(false);
 
-            // Insert into Projetos table
-            String sqlProjetos = "INSERT INTO Projetos (nomeCurto, titulo, descricao, palavraChave, dataInicio, dataFim, ID_entidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sqlProjetos = "INSERT INTO Projetos (nomeCurto, titulo, descricao, palavraChave, dataInicio, dataFim, ID_entidade)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmtProjetos = conn.prepareStatement(sqlProjetos, Statement.RETURN_GENERATED_KEYS);
 
             pstmtProjetos.setString(1, txtNomeCurto.getText());
             pstmtProjetos.setString(2, txtTitulo.getText());
             pstmtProjetos.setString(3, txtDescricao.getText());
             pstmtProjetos.setString(4, txtPalavrasChave.getText());
-            pstmtProjetos.setDate(5, java.sql.Date.valueOf(txtDataInicio.getText())); // Ensure date format is correct
-            pstmtProjetos.setDate(6, java.sql.Date.valueOf(txtDataFim.getText())); // Ensure date format is correct
-            pstmtProjetos.setInt(7, getSelectedEntidadeId());
+            pstmtProjetos.setDate(5, java.sql.Date.valueOf(txtDataInicio.getText()));
+            pstmtProjetos.setDate(6, java.sql.Date.valueOf(txtDataFim.getText()));
+
 
             pstmtProjetos.executeUpdate();
 
-            // Retrieve generated ID for the new project
             ResultSet generatedKeys = pstmtProjetos.getGeneratedKeys();
             int projetoId = -1;
             if (generatedKeys.next()) {
@@ -61,32 +61,16 @@ public class AddProjeto {
             }
             generatedKeys.close();
             pstmtProjetos.close();
-
-            // Insert into other related tables
-            insertIntoDominiosCientificos(conn, projetoId);
-            insertIntoAreasCientificas(conn, projetoId);
-            insertIntoPublicacoes(conn, projetoId);
-            insertIntoDepartamentos(conn, projetoId);
-
-            conn.commit(); // Commit transaction
+            conn.commit();
             conn.setAutoCommit(true);
 
-            // Optionally, clear the fields after insertion
             clearFields();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void voltar(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("projetos.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
+    // Metodos alheios
     private void loadEntidades() {
         try {
             // Connect to your database
@@ -159,40 +143,26 @@ public class AddProjeto {
         txtDepartamento.clear();
     }
 
-    private void insertIntoDominiosCientificos(Connection conn, int projetoId) throws Exception {
-        String sql = "INSERT INTO DominiosCientificos (projetoId, dominioCientifico) VALUES (?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, projetoId);
-        pstmt.setString(2, txtDominioCientifico.getText());
-        pstmt.executeUpdate();
-        pstmt.close();
+    // Botões de Navegação
+    public void addEntidade(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addEntidade.fxml"));
+        Parent root = fxmlLoader.load();
+
+        // Pegue o controlador da nova janela
+        AddEntidade controlador = fxmlLoader.getController();
+        // Passe a cena atual para o controlador da nova janela
+        controlador.setCenaAnterior(((Node) actionEvent.getSource()).getScene());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
-    private void insertIntoAreasCientificas(Connection conn, int projetoId) throws Exception {
-        String sql = "INSERT INTO AreasCientificas (projetoId, areaCientifica) VALUES (?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, projetoId);
-        pstmt.setString(2, txtAreaCientifica.getText());
-        pstmt.executeUpdate();
-        pstmt.close();
-    }
-
-    private void insertIntoPublicacoes(Connection conn, int projetoId) throws Exception {
-        String sql = "INSERT INTO Publicacoes (projetoId, tipoPublicacao, url) VALUES (?, ?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, projetoId);
-        pstmt.setString(2, txtPub.getText());
-        pstmt.setString(3, txtTipoPub.getText());
-        pstmt.executeUpdate();
-        pstmt.close();
-    }
-
-    private void insertIntoDepartamentos(Connection conn, int projetoId) throws Exception {
-        String sql = "INSERT INTO Departamentos (projetoId, departamento) VALUES (?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, projetoId);
-        pstmt.setString(2, txtDepartamento.getText());
-        pstmt.executeUpdate();
-        pstmt.close();
+    public void voltar(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("projetos.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

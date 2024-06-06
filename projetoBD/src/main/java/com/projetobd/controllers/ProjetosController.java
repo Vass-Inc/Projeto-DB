@@ -3,8 +3,8 @@ package com.projetobd.controllers;
 import com.projetobd.Database;
 import com.projetobd.Main;
 import com.projetobd.models.Projetos;
+import com.projetobd.models.Utils;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,15 +35,12 @@ public class ProjetosController {
     @FXML
     private TableColumn<Projetos, String> colunaPalavraChave;
     @FXML
-    private TableColumn<Projetos, String> colunaDataInicio;
+    private TableColumn<Projetos, Date> colunaDataInicio;
     @FXML
-    private TableColumn<Projetos, String> colunaDataFim; // Changed from colunaEstado to colunaDataFim
-
-    private final ObservableList<Projetos> projetos = FXCollections.observableArrayList();
+    private TableColumn<Projetos, Date> colunaDataFim;
 
     @FXML
     private void initialize() {
-        configurarColunas();
         carregarDados();
 
         tableView.setOnMouseClicked(event -> {
@@ -56,24 +53,15 @@ public class ProjetosController {
         });
     }
 
-    private void configurarColunas() {
-        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("idProjeto"));
-        this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
-        this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
-        this.colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
-        this.colunaDataFim.setCellValueFactory(new PropertyValueFactory<>("dataFim")); // Ensure column matches property
-    }
-
     private void carregarDados() {
-        try {
-            Connection connection = Database.getConnection();
-            String query = "SELECT p.ID_projeto, p.nomeCurto, p.titulo, p.palavraChave, p.dataInicio, p.dataFim FROM Projetos p";
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+        Utils.projetos.clear();
+        try (Connection con = Database.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Projetos")) {
 
             while (rs.next()) {
-                projetos.add(new Projetos(
+                System.err.println(rs.getString("nomeCurto"));
+                Utils.projetos.add(new Projetos(
                         rs.getInt("ID_projeto"),
                         rs.getString("nomeCurto"),
                         rs.getString("titulo"),
@@ -82,17 +70,18 @@ public class ProjetosController {
                         rs.getDate("dataFim").toLocalDate() // Ensure to convert SQL date to LocalDate
                 ));
             }
-
-            rs.close();
-            statement.close();
-            connection.close();
-
-            tableView.setItems(projetos);
-
         } catch (SQLException e) {
             Logger.getLogger(ProjetosController.class.getName()).log(Level.SEVERE, null, e);
             showAlert("Erro ao carregar dados", e.getMessage());
         }
+
+        this.tableView.setItems(Utils.projetos);
+        this.colunaIdProjeto.setCellValueFactory(new PropertyValueFactory<>("idProjeto"));
+        this.colunaNomeCurto.setCellValueFactory(new PropertyValueFactory<>("nomeCurto"));
+        this.colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+        this.colunaPalavraChave.setCellValueFactory(new PropertyValueFactory<>("palavraChave"));
+        this.colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        this.colunaDataFim.setCellValueFactory(new PropertyValueFactory<>("dataFim"));
     }
 
     private void mostrarDetalhesProjeto(int idProjeto) {
@@ -104,7 +93,7 @@ public class ProjetosController {
             controller.setIdProjeto(idProjeto);
 
             Scene scene = new Scene(root);
-            Stage stage = (Stage) tableView.getScene().getWindow(); // Get the current stage
+            Stage stage = (Stage) tableView.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("Detalhes do Projeto");
             stage.show();
@@ -129,8 +118,11 @@ public class ProjetosController {
         stage.show();
     }
 
-
-    public void voltar(ActionEvent actionEvent) {
-
+    public void voltar(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

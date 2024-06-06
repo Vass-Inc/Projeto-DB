@@ -15,12 +15,12 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <Button layoutX="3.0" layoutY="139.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="92.0" text="Editar" />
-            <Button layoutX="3.0" layoutY="173.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: green;" text="Guardar" textFill="WHITE">
+                <Button fx:id="btnEditar" layoutX="3.0" layoutY="139.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="92.0" text="Editar" />
+            <Button fx:id="btnGuardar" disable="true" layoutX="3.0" layoutY="139.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: green;" text="Guardar" textFill="WHITE" visible="false">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="22.0" layoutY="447.0" mnemonicParsing="false" onAction="#paraTras" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: blue;" text="Voltar" textFill="WHITE">
+            <Button layoutX="22.0" layoutY="447.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: blue;" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -127,17 +127,22 @@
                   <Font name="JetBrains Mono Regular" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtDataInicio" editable="false" layoutX="12.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="Data Inicio">
+            <TextField fx:id="txtDataInicio" editable="false" layoutX="12.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="yyyy-mm-dd">
                <font>
                   <Font name="JetBrains Mono Regular" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtDataFim" editable="false" layoutX="172.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavras-Chave">
+            <TextField fx:id="txtDataFim" editable="false" layoutX="172.0" layoutY="276.0" prefHeight="25.0" prefWidth="150.0" promptText="yyyy-mm-dd">
                <font>
                   <Font name="JetBrains Mono Regular" size="12.0" />
                </font>
             </TextField>
-            <MenuButton layoutX="498.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Entidades" />
+            <MenuButton fx:id="menuButtonEntidade" layoutX="498.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Entidades" />
+            <TextField fx:id="txtPaisEnt" editable="false" layoutX="498.0" layoutY="223.0" prefHeight="25.0" prefWidth="202.0" promptText="Morada">
+               <font>
+                  <Font name="JetBrains Mono Regular" size="12.0" />
+               </font>
+            </TextField>
             </children>
         </AnchorPane>
     </items>

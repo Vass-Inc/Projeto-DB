@@ -46,7 +46,7 @@
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtPalavrasChave" layoutX="12.0" layoutY="147.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavras-Chave">
+                <TextField fx:id="txtPalavrasChave" layoutX="12.0" layoutY="147.0" prefHeight="25.0" prefWidth="150.0" promptText="Palavra-Chave">
                     <font>
                         <Font name="JetBrains Mono Regular" size="12.0" />
                     </font>
@@ -145,6 +145,7 @@
                   <Font name="JetBrains Mono Regular" size="12.0" />
                </font>
             </TextField>
+            <Button layoutX="498.0" layoutY="264.0" mnemonicParsing="false" onAction="#addEntidade" prefHeight="25.0" prefWidth="132.0" text="Adicionar Entidade" />
             </children>
         </AnchorPane>
     </items>

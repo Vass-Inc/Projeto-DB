@@ -65,6 +65,13 @@
                     </font>
                 </TextField>
                 <MenuButton fx:id="menuPais" layoutX="14.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Países" />
+            <Button fx:id="btnAdd" layoutX="12.0" layoutY="273.0" mnemonicParsing="false" onAction="#addPais" text="Adicionar País" />
+            <TextField fx:id="txtNomePais" layoutX="13.0" layoutY="305.0" prefHeight="25.0" prefWidth="320.0" promptText="Nome do País" visible="false">
+               <font>
+                  <Font name="JetBrains Mono Regular" size="12.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnGuardar" disable="true" layoutX="12.0" layoutY="273.0" mnemonicParsing="false" onAction="#guardaPais" prefHeight="25.0" prefWidth="91.0" text="Guardar País" visible="false" />
             </children>
         </AnchorPane>
     </items>
