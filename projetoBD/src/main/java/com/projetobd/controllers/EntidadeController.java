@@ -49,25 +49,23 @@ public class EntidadeController {
     private void carregarDados() {
         Utils.entidade.clear();
 
-        try {
-            Connection connection = Database.getConnection();
-            String query = "SELECT e.ID_entidade, e.nome, e.email, e.telefone, e.designacao, e.morada, p.nomePais " +
-                    "FROM Entidade e, Pais p WHERE e.ID_pais = p.ID_pais";
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+        try (Connection connection = Database.getConnection();
 
-            while (rs.next()) {
-                Utils.entidade.add(new Entidade(
-                        rs.getInt("ID_entidade"),
-                        rs.getString("nome"),
-                        rs.getString("email"),
-                        rs.getString("telefone"),
-                        rs.getString("designacao"),
-                        rs.getString("morada"),
-                        rs.getString("nomePais")
-                ));
-            }
-
+             Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT e.ID_entidade, e.nome, e.email, e.telefone, e.designacao, e.morada, p.nomePais " +
+                     "FROM Entidade e, Pais p WHERE e.ID_pais = p.ID_pais");
+             ){
+                while (rs.next()) {
+                    Utils.entidade.add(new Entidade(
+                            rs.getInt("ID_entidade"),
+                            rs.getString("nome"),
+                            rs.getString("email"),
+                            rs.getString("telefone"),
+                            rs.getString("designacao"),
+                            rs.getString("morada"),
+                            rs.getString("nomePais")
+                    ));
+                }
         } catch (SQLException e) {
             Logger.getLogger(ProjetosController.class.getName()).log(Level.SEVERE, null, e);
             showAlert("Erro ao carregar dados", e.getMessage());

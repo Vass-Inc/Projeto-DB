@@ -26,7 +26,7 @@ CREATE TABLE Membros_DIUBI
   ID_membro INT NOT NULL IDENTITY(1,1),
   numeroFuncionario VARCHAR(255) NOT NULL,
   orcid INT NOT NULL,
-  funcao INT NOT NULL,
+  funcao VARCHAR(255) NOT NULL,
   PRIMARY KEY (ID_membro),
   UNIQUE (orcid)
 );
@@ -74,22 +74,6 @@ CREATE TABLE Pais
   PRIMARY KEY (ID_pais),
 );
 
-CREATE TABLE Departamento
-(
-  ID_departamento INT NOT NULL,
-  ID_membro INT NOT NULL,
-  FOREIGN KEY (ID_departamento) REFERENCES NomeDepartamento(ID_departamento),
-  FOREIGN KEY (ID_membro) REFERENCES Membros_DIUBI(ID_membro)
-);
-
-CREATE TABLE EstadoProjeto
-(
-  ID_tipoEstado INT NOT NULL,
-  ID_projeto INT NOT NULL,
-  FOREIGN KEY (ID_tipoEstado) REFERENCES TipoEstado(ID_tipoEstado),
-  FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto)
-);
-
 CREATE TABLE Projetos
 (
   ID_projeto INT NOT NULL IDENTITY(1,1),
@@ -117,6 +101,22 @@ CREATE TABLE Entidade
   FOREIGN KEY (ID_pais) REFERENCES Pais(ID_pais)
 );
 
+CREATE TABLE Departamento
+(
+  ID_departamento INT NOT NULL,
+  ID_membro INT NOT NULL,
+  FOREIGN KEY (ID_departamento) REFERENCES NomeDepartamento(ID_departamento),
+  FOREIGN KEY (ID_membro) REFERENCES Membros_DIUBI(ID_membro)
+);
+
+CREATE TABLE EstadoProjeto
+(
+  ID_tipoEstado INT NOT NULL,
+  ID_projeto INT NOT NULL,
+  FOREIGN KEY (ID_tipoEstado) REFERENCES TipoEstado(ID_tipoEstado),
+  FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto)
+);
+
 CREATE TABLE EntidadeProjeto(
 	ID_entidade INT NOT NULL,
 	ID_projeto INT NOT NULL,
@@ -139,8 +139,6 @@ CREATE TABLE AreaProjeto
   FOREIGN KEY (ID_projeto) REFERENCES Projetos(ID_projeto),
   FOREIGN KEY (ID_areaCientifica) REFERENCES TipoArea(ID_areaCientifica)
 );
-
-
 
 CREATE TABLE PublicacaoProjeto
 (

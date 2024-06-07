@@ -89,11 +89,11 @@ public class DetalhesProjetoController {
                     "    p.palavraChave, " +
                     "    p.dataInicio, " +
                     "    p.dataFim, " +
-                    "    e.nome AS nomeEntidade, " +
-                    "    e.email AS emailEntidade, " +
-                    "    e.telefone AS telefoneEntidade, " +
-                    "    e.designacao AS designacaoEntidade, " +
-                    "    e.morada AS moradaEntidade, " +
+                    "    e.nome, " +
+                    "    e.email, " +
+                    "    e.telefone, " +
+                    "    e.designacao, " +
+                    "    e.morada, " +
                     "    nd.nomeDepartamento, " +
                     "    te.estado, " +
                     "    td.dominioCientifico, " +
@@ -134,11 +134,11 @@ public class DetalhesProjetoController {
                 txtPalavrasChave.setText(resultSet.getString("palavraChave"));
                 txtDataInicio.setText(resultSet.getString("dataInicio"));
                 txtDataFim.setText(resultSet.getString("dataFim"));
-                txtNomeEnt.setText(resultSet.getString("nomeEntidade"));
-                txtEmail.setText(resultSet.getString("emailEntidade"));
-                txtTelefone.setText(resultSet.getString("telefoneEntidade"));
-                txtDesignacao.setText(resultSet.getString("designacaoEntidade"));
-                txtMorada.setText(resultSet.getString("moradaEntidade"));
+                txtNomeEnt.setText(resultSet.getString("nome"));
+                txtEmail.setText(resultSet.getString("email"));
+                txtTelefone.setText(resultSet.getString("telefone"));
+                txtDesignacao.setText(resultSet.getString("designacao"));
+                txtMorada.setText(resultSet.getString("morada"));
                 txtDepartamento.setText(resultSet.getString("nomeDepartamento"));
                 txtEstado.setText(resultSet.getString("estado"));
                 txtDominioCientifico.setText(resultSet.getString("dominioCientifico"));
@@ -163,6 +163,7 @@ public class DetalhesProjetoController {
         updateProjetos(idProjeto, txtNomeCurto, txtTitulo, txtDescricao, txtPalavrasChave, txtDataInicio, txtDataFim);
         updateEntidadeProjetos(getSelectedEntidadeId(), idProjeto);
     }
+
 
     // WORK DONE !!!!
     private void loadEntidades() {

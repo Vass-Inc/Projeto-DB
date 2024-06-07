@@ -4,8 +4,8 @@ public class Estado {
     private int idEstado;
     private String estado;
 
-    public Estado(String estado) {
-        this.idEstado = idEstado;
+    public Estado(int idEstado, String estado) {
+        this.idEstado = this.idEstado;
         this.estado = estado;
     }
 
@@ -23,5 +23,9 @@ public class Estado {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public int getId() {
+        return idEstado;
     }
 }

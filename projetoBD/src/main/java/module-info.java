@@ -4,6 +4,7 @@ module com.projetobd {
     requires java.desktop;
     requires javafx.graphics;
     requires java.sql;
+    requires annotations;
 
 
     opens com.projetobd to javafx.fxml;
